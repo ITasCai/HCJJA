@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>insertBefore</title>
+    <script>
+        function Create() {
+            var para = document.createElement("h3");
+            var txt = document.createTextNode("insertBefore方法");
+            para.appendChild(txt);
+            var sport = document.getElementById("sports");
+            sport.parentNode.insertBefore(para,sport);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>喜欢的运动</p>
+        <ul id="sports">
+            <li>游泳</li>
+            <li>足球</li>
+            <li>篮球</li>
+            <li>拳击</li>
+        </ul>
+        <input type="button" name="name" value="insertBefore"  onclick="Create();"/>
+    </div>
+</body>
+</html>

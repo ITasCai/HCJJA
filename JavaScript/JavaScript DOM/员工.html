@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        .container {
+            margin: 20px auto;
+            width: 500px;
+            text-align: center;
+        }
+
+        table {
+            width: 500px;
+        }
+
+        table, th, td {
+            border: 1px solid #000000;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+            var tbody = document.getElementById("tbContent");//tbody
+            ////如果没有数据，则显示没有数据
+            //if (tbody.childNodes.length == 0) {
+            //    var empty = document.getElementById("empty");
+            //    empty.innerHTML = "<strong>无数据<strong/>";
+            //    empty.style = "color:red;font-size:15px;text-align:center;";
+            //}
+            document.getElementById("btnAdd").onclick = function () {
+                //开窗
+                window.open("employee.html", "add", "left=400,top=200,height=300,width=400,resizable=no,scrollbars=yes,status=no,toolbar=no,menubar=no,location=no");
+            };
+        }
+        //添加员工信息
+        function ShowMsg(emp) {
+            //添加一行信息
+            var td_select = document.createElement("td");
+            var checkbox = document.createElement("input");
+            checkbox.setAttribute("type", "checkbox");
+            checkbox.setAttribute("name", "select");
+            td_select.appendChild(checkbox);
+            var td_Id = document.createElement("td");
+            var txtId = document.createTextNode(emp.empId);//员工编号
+            td_Id.appendChild(txtId);
+            var td_Name = document.createElement("td");
+            var txt_Name = document.createTextNode(emp.empName);//员工姓名
+            td_Name.appendChild(txt_Name);
+
+            var td_Job = document.createElement("td");
+            var txt_Job = document.createTextNode(emp.empJob);//员工职位
+            td_Job.appendChild(txt_Job);
+
+            var td_Del = document.createElement("td");
+            var btnDel = document.createElement("input");
+            btnDel.setAttribute("type", "button");
+            btnDel.setAttribute("value", "删除");
+            btnDel.setAttribute("onclick", "RemoveTr(this)");
+            td_Del.appendChild(btnDel);
+
+            var tr = document.createElement("tr");
+            var tbody = document.getElementById("tbContent");//tbody
+            tr.appendChild(td_select);
+            tr.appendChild(td_Id);
+            tr.appendChild(td_Name);
+            tr.appendChild(td_Job);
+            tr.appendChild(td_Del);
+            tbody.appendChild(tr);
+            //document.getElementById("empty").hidden = false;
+        }
+
+        //删除信息
+        function RemoveTr(obj) {
+            var trNode = obj.parentNode.parentNode;//取得当前行
+            if (confirm("确定删除吗?")) {
+                trNode.parentNode.removeChild(trNode);
+            }
+        }
+
+        //全选/全不选
+        function SelectAll() {
+            var all = document.getElementById("all");
+            var list = document.getElementsByName("select");
+            for (var i = 0; i < list.length; i++) {
+                list[i].checked = all.checked;
+            }
+        }
+
+        //删除员工信息
+        function DeleteEmp() {
+            var check = document.getElementsByName("select");
+            var count = 0;//统计选中的项
+            var arr = new Array();//将选中的项放入数组中
+            for (var i = 0; i < check.length; i++) {
+                if (check[i].checked) {
+                    count = count + 1;
+                    var element = check[i].parentNode.parentNode;
+                    arr.push(element);//将选中项的存放到数组中
+                }
+            }
+            if (count == 0) {
+                alert("请至少选中一项!");
+                return;
+            }
+            if (!confirm("确定要删除吗?")) {
+                return;
+            }
+            for (var i = 0; i < arr.length; i++) {
+                tbContent.removeChild(arr[i])
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>员工管理</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="selectAll" onchange="SelectAll();" id="all" />全选</th>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>职位</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tbContent"></tbody>
+        </table>
+        <p id="empty">
+        </p>
+        <input type="button" name="name" id="btnAdd" value="添加员工" />
+        <input type="button" name="name" id="btnDelete" onclick="DeleteEmp();" value="删除员工" />
+        <script>
+
+        </script>
+    </div>
+</body>
+</html>

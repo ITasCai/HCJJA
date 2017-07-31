@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>兄弟选择器</title>
+    <!--相邻兄弟选择器可选择紧接在另一元素后的元素，且二者有相同父元素。-->
+    <meta charset="utf-8" />
+    <style>
+        h1 + #p1 {
+            color: red;
+        }
+
+        .p2 + p {
+            color: blue;
+        }
+
+        .test2 ul + ul li:first-child {
+            color: yellow;
+        }
+
+        #p1 ~ p { /*普通兄弟选择器*/
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="test1">
+        <h1>山东省景点</h1>
+        <p id="p1">五岳独尊-泰山</p>
+        <p>孔孟之乡-济宁</p>
+        <p class="p2">江北水城-聊城</p>
+        <p>人间仙境-蓬莱</p>
+    </div>
+    <div class="test2">
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ul>
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ul>
+        <ol>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ol>
+    </div>
+    <div>
+        <h1>食物</h1>
+        <ul class="food">
+            <li>
+                水果
+                <ul>
+                    <li>香蕉</li>
+                    <li>苹果</li>
+                    <li>梨</li>
+                </ul>
+            </li>
+            <li>
+                蔬菜
+                <ul>
+                    <li>白菜</li>
+                    <li>油菜</li>
+                    <li>卷心菜</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

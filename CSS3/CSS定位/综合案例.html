@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>定位综合案例</title>
+    <style>
+        body, div, ul, li,h3{margin:0; padding:0;} 
+        ul ,li{list-style:none} 
+        body{color:#FFF;background:#FFF; text-align:center} 
+        a{color:#FFF;text-decoration:none}  
+        a:hover{color:#BA2636;text-decoration:underline} 
+        #wrapper{ margin:0 auto;position:relative;width:610px;height:559px;background-color:#808080;} 
+        .box1{ position:absolute; width:147px; height:140px; left:198px; top:14px} 
+        .box2{position:absolute; width:141px; height:186px; left:31px; bottom:17px} 
+        .box3{position:absolute; width:132px; height:188px; right:28px; bottom:67px} 
+        /* position:absolute是绝对定位关键，子级设置同时lef right top bottom配合使用 */ 
+        h3.title{ height:32px; line-height:32px; font-size:14px; font-weight:bold; text-align:left} 
+        /* 标题统一设置 */ 
+        ul.list{ text-align:left; width:100%; padding-top:8px} 
+        ul.list li{ width:100%; text-align:left; height:22px;overflow:hidden} 
+        /* 加了overflow:hidden防止内容过多后自动换行 隐藏超出内容 */ 
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="box1">
+            <h3 class="title">新闻动态</h3>
+            <ul class="list">
+                <li><a href="#">不会程序能学会CSS吗？</a></li>
+                <li><a href="#">DIVCSS学习难吗？</a></li>
+                <li><a href="#">我要参加HTML5的培训</a></li>
+                <li><a href="#">jQuery炫彩效果</a></li>
+            </ul>
+        </div>
+        <div class="box2">
+            <h3 class="title">DIV+CSS栏目</h3>
+            <ul class="list">
+                <li><a href="#">CSS基础教程</a></li>
+                <li><a href="#">HTML基础教程</a></li>
+                <li><a href="#">CSS问题</a></li>
+                <li><a href="#">CSS制作工具</a></li>
+                <li><a href="#">DIV CSS技巧</a></li>
+                <li><a href="#">DIV+CSS+JS特效</a></li>
+            </ul>
+        </div>
+        <div class="box3">
+            <h3 class="title">网站栏目</h3>
+            <ul class="list">
+                <li><a href="#">DIV CSS入门</a></li>
+                <li><a href="#">HTML入门教程</a></li>
+                <li><a href="#">CSS实例</a></li>
+                <li><a href="#">DIVCSS5首页</a></li>
+                <li><a href="#">DIV CSS模块模板</a></li>
+                <li><a href="#">DIV CSS WEB标准</a></li>
+            </ul>
+        </div>
+    </div> 
+</body>
+</html>

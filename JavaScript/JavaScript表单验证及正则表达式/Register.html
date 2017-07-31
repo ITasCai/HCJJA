@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>用户注册</title>
+    <link rel="stylesheet" href="../css/register.css" />
+    <script src="../js/register.js"></script>
+    <!--js校验表单后提交表单的三种方法总结
+        1.<input type=submit name="submit1" value="注册" onclick="return check(this.form)">
+        2.<form action="login" method="post" onsubmit="return check(this)">
+        3.input type=button name="submit1" value="登陆" onclick="check(this.form)">
+          form.submit();
+        -->
+</head>
+<body onload="yearList(); createCode();">
+    <div class="container">
+        <form name="form1" action="index.aspx?Action=Login" method="get" onsubmit="return CheckAll();">
+            <fieldset>
+                <legend><strong>用户注册</strong></legend>
+                <div class="field">
+                    <label for="userName">账号:</label>
+                    <input type="text" name="username" id="userName" size="25"
+                           onfocus="clearMsg(errorName);" onblur="return ValUserName();" placeholder="字母开头数字或下划线，6-20位"
+                           maxlength="20" />
+                    <span class="error" id="errorName"></span>
+                </div>
+                <div class="field">
+                    <label for="userPwd">密码:</label>
+                    <input type="password" name="userpwd" id="userPwd" size="25" value="" placeholder="请输入密码"
+                           maxlength="20" onfocus="clearMsg(errorPwd);" onblur="return ValUserPwd();" />
+                    <span class="error" id="errorPwd"></span>
+                </div>
+                <div class="field">
+                    <label>确认密码:</label>
+                    <input type="password" name="name" id="userSPwd" size="25" value="" placeholder="再次确认密码"
+                           maxlength="20" onfocus="clearMsg(errorSpwd);" onblur="return ValSPwd();" />
+                    <span class="error" id="errorSpwd"></span>
+                </div>
+                <div class="field">
+                    <label>性别:</label>
+                    <span style="display:inline-block;width:200px; text-align:left;">
+                        <input type="radio" checked="checked" name="gender" id="male" value="" />男
+                        <input type="radio" name="gender" id="female" value="" />女
+                    </span>
+                </div>
+                <div class="field">
+                    <label>出生年月:</label>
+                    <select id="year" style="width:100px;"></select>&nbsp;年
+                    <select id="month" style="width:60px;"></select>&nbsp;月
+                </div>
+                <div class="field">
+                    <label for="email">常用邮箱:</label>
+                    <input type="email" name="email" size="25" id="email" placeholder="example@163.com"
+                           onfocus="clearMsg(errorEmail);" onblur="return ValEmail();" />
+                    <span class="error" id="errorEmail"></span>
+                </div>
+                <div class="field">
+                    <label for="phone">手机号:</label>
+                    <input type="text" name="phone" id="phone" size="25" value="" placeholder="请输入11位手机号"
+                           onfocus="clearMsg(errorPhone);" onblur="return ValTelphone();" />
+                    <span class="error" id="errorPhone"></span>
+                </div>
+                <div class="field">
+                    <label for="showcode">验证码:</label>
+                    <input size="12" id="showcode" type="text" onfocus="clearMsg(errorCode);" onblur="return ValCode();" />
+                    <span id="checkCode"></span>
+                    <!--<input type="button" value="换一张" style="background-color:gray" onclick="createCode();" />-->
+                    <a href="#" onclick="createCode()">换一张</a>
+                    <span class="error" id="errorCode"></span>
+                </div>
+                <div class="contorl">
+                    <!--<input type="submit" name="submit" id="btnSubmit" value="注册" onclick="return CheckAll();" />-->
+                    <input type="submit" name="submit" id="btnSubmit" value="注册" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" name="reset" id="btnReset" value="重置" />
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+</body>
+</html>

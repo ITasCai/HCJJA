@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTML表结构</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <!--HTML表结构：从语义结构上划分表格分为：表头、表主体、表尾
+        	thead标签标识表格头部元素
+        	tbody标签标识表格表体元素
+        	tfoot标签标识表格表尾元素
+        表格对齐方式：
+        align:水平对齐，可以设置让整个表格居中，左右对齐，
+         让表格某一行内容居中，左右对齐，让某一行的单元格内容居中，左右对齐。
+        cellpadding:表格中内容和单元格之间的距离。
+        cellspacing:表格中单元格和单元格之间的距离。
+     -->
+    <table align="center" border="1" cellpadding="10" cellspacing="5">
+        <caption><h2>学生成绩表</h2></caption>
+        <thead>
+            <!--表的头部-->
+            <tr>
+                <th>学号</th>
+                <th>C#程序设计</th>
+                <th>SQL Server</th>
+                <th>ADO.NET</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--表的主体-->
+            <tr>
+                <td>1001</td>
+                <td>80</td>
+                <td>87</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td>1002</td>
+                <td>86</td>
+                <td>87</td>
+                <td>75</td>
+            </tr>
+            <tr>
+                <td>1003</td>
+                <td>70</td>
+                <td>97</td>
+                <td>85</td>
+            </tr>
+        </tbody>
+        <tfoot  style="color:black;font-weight:bold">
+            <tr>
+                <td>平均分</td>
+                <td>89</td>
+                <td>82</td>
+                <td>93</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

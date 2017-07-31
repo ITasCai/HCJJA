@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        //脚本可以放到HTML页面的Head标签中。
+        alert("你好！");
+    </script>
+</head>
+<body>
+    JavaScript 是互联网上最流行的脚本语言，这门语言可用于 HTML 和 web，更可广泛用于服务器、PC、笔记本电脑、
+    平板电脑和智能手机等设备。
+    JavaScript 是脚本语言
+    JavaScript 是一种轻量级的编程语言。
+    JavaScript 是可插入 HTML 页面的编程代码。
+    JavaScript 插入 HTML 页面后，可由所有的现代浏览器执行。
+    JavaScript 很容易学习。
+    <p>
+        JavaScript能够直接写入HTML输出流中。
+    </p>
+    <script>
+        document.write("<h1>这是一个标题</h1>");
+        document.write("<p>这是一个段落</p>");
+    </script>
+    <p>
+        只能在HTML输出流中使用<strong>document.write</strong>
+        如果在文档加载后使用它(比如在函数中),会覆盖整个文档。
+    </p>
+
+    <button onclick="myFunction()">点击这里</button>
+
+    <script>
+        function myFunction() {
+            document.write("糟糕！文档消失了。");
+        }
+    </script>
+    <script>
+        alert("大家好！");//把javaScript放在页面底部进行加载
+    </script>
+</body>
+</html>

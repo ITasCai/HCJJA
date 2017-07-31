@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        input:focus,textarea:focus {
+            background-color:greenyellow;
+        }
+        input[type="submit"]:focus {
+           background-color:red;
+        }
+        input:checked + label {
+            color:aqua;
+        }
+        input:required {
+            border:2px solid#ff6a00;
+        }
+    </style>
+</head>
+<body>
+    <!--enctype 属性
+        规定在发送到服务器之前应该如何对表单数据进行编码。
+        默认地，表单数据会编码为 "application/x-www-form-urlencoded"。
+        就是说，在发送到服务器之前，所有字符都会进行编码（空格转换为 "+" 加号，特殊符号转换为 ASCII HEX 值）。
+        application/x-www-form-urlencoded	在发送前编码所有字符（默认）
+        multipart/form-data	不对字符编码。在使用包含文件上传控件的表单时，必须使用该值。
+        text/plain	空格转换为 "+" 加号，但不对特殊字符编码。
+        -->
+    <form action="../index.html" method="post" enctype="multipart/form-data" autocomplete="on">
+
+            <p>
+                <label for="userName">用户名:&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" name="userName" id="userName" placeholder="请输入用户名"
+                       required="required" oninvalid="setCustomValidity('用户名不能为空')"
+                       oninput="setCustomValidity('')" autofocus size="20" maxlength="15" />
+            </p>
+            <p>
+                <label for="userPwd">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                <input type="password" name="userPwd" id="userPwd" required placeholder="请输入密码"
+                       size="20" maxlength="15" />
+            </p>
+            <p>
+                <label for="rePwd">确认密码:</label>
+                <input type="password" name="userPwd" id="rePwd" required placeholder="请输入确认密码"
+                       size="20" maxlength="15" />
+            </p>
+        <p>
+            <label for="email">电子邮箱:</label>
+            <input type="email" name="email" id="email" placeholder="请输入邮箱" required maxlength="30" />
+        </p>
+        <p>
+            <label for="telphone">联系电话:</label>
+            <input type="tel" name="telphone" id="telphone" pattern="\d{3}-\d{3}-\d{4}"  placeholder="请输入联系电话"  />
+        </p>
+        <p>
+            <!--设置为禁用-->
+            <label for="regDate">注册日期:</label>
+            <input type="date" name="date" id="regDate" value="1997-02-14"  disabled/>
+            <!--隐藏字段
+                隐藏字段可用于存储表单中的数据，但他不会显示给访问者。可看做它们是不可见的文本框，
+                通常用于存储先前表单收集的信息。以便将这些信息同当前表单的数据一起交给脚本进行处理。-->
+            <input type="hidden" name="inputNumber" value="1001" />
+        </p>
+        <p>
+            <!--设置为只读-->
+            <label for="number">序列号:</label>
+            <input type="number" name="number" id="number" value="201700001"  readonly/>
+        </p>
+
+        <p>
+            <label>性别:</label>
+            <input type="radio" name="gender" id="male" value="male" />
+            <label for="male">男</label>
+            <input type="radio" name="gender" id="female" value="female" />
+            <label for="female">女</label>
+        </p>
+        <p>
+            <label>爱好:</label>
+            <input type="checkbox" name="hobby" id="football" value="football" />
+            <label for="football">足球</label>
+            <input type="checkbox" name="hobby" id="swim" value="swim" />
+            <label for="swim">游泳</label>
+            <input type="checkbox" name="hobby" id="basketball" value="basketball" />
+            <label for="basketball">篮球</label>
+            <input type="checkbox" name="hobby" id="music" value="music" />
+            <label for="music">音乐</label>
+        </p>
+        <p>
+            <label for="remark">备注:</label>
+            <textarea id="remark" name="memo" cols="40" rows="5"></textarea>
+        </p>
+        <p>
+            <label for="record">学历：</label>
+            <select id="record" name="record">
+                <option selected="selected">请选择</option>
+                <option value="0">研究生</option>
+                <option value="1">本科</option>
+                <option value="2">专科</option>
+                <option value="3">高中</option>
+                <option value="4">初中</option>
+
+            </select>
+        </p>
+        <p>
+            <label for="picture">上传图片:</label>
+            <input type="file" name="picture" id="picture" />
+            <span>不超过800K JPG、PNG、GIF格式</span>
+        </p>
+        <p>
+            <!--创建纯文本提交按钮：-->
+            <input type="submit" name="submit" id="submit" value="提交" />
+        </p>
+        <p>
+            <!--创建带图像的提交按钮：-->
+            <input type="image" src="image/login.png" width="70" name="login" id="btnLogin" alt="登录" />
+        </p>
+        <p>
+            <!-- 创建结合文本和图像的提交按钮：-->
+            <button type="submit">
+                <img src="image/login.png" width="70" alt="登录" />登录
+            </button>
+        </p>
+        <p>
+            <!--重置按钮-->
+            <input type="reset" name="reset" id="reset" value="重置" />
+        </p>
+        <!--禁用表单元素-->
+        <label for="datetime">出生日期:</label>
+        <input type="datetime" name="datetime" id="datetime"  />
+    </form>
+
+    <form action="" method="get" role="search">
+        <label for="search">搜索内容:</label>
+        <input type="search" name="search" id="search" placeholder="请输入关键字" />
+    </form>
+</body>
+</html>

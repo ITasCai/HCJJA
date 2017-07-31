@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ID选择器</title>
+    <!--ID选择器：要给添加样式的标签设置一个ID名称
+        可以为标有特定ID的HTML元素指定特定的样式(独一无二)
+        HTML元素以Id属性来设置ID选择器，CSS中ID选择器以"#"符号来定义。-->
+	<meta charset="utf-8" />
+    <style>
+        #menu {
+           background-color:#808080;
+           width:200px;
+           font-family:宋体;
+           font-size:18pt;
+           color:white;
+        }
+        #test {
+        color:red;
+        font-size:12px;
+        width:300px;
+        }
+    </style>
+</head>
+<body>
+   <header>
+       <nav id="menu">
+           <ul>
+               <li>新闻资讯</li>
+               <li>娱乐天地</li>
+               <li>体育竞技</li>
+               <li>文化传媒</li>
+           </ul>
+       </nav>
+   </header>
+    <main>
+        <div id="test">
+            <p>5万把共享雨伞不到一天全部“消失”</p>
+            <article>
+                <section>
+                    <h2>国内新闻</h2>
+                    <p>嫦娥七号顺利发射成功!</p>
+                </section>
+                <section>
+                    <h2>国际新闻</h2>
+                    <p>国际油价大幅度上涨。每桶价格提高80美分。</p>
+                </section>
+            </article>
+        </div>
+        
+    </main>
+</body>
+</html>

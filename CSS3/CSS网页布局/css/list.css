@@ -1,0 +1,11 @@
+﻿.news_list{width:260px; float:left; }
+.list_title{width:100%;background-image:url(../image/titlebg.jpg);height:25px;line-height:25px;overflow:hidden;font-weight:bold;text-align:center;}
+.list_content ul{list-style-type:square;}
+.list_content ul li{ line-height:30px;padding-left:20px;}
+.list_content ul li a{text-align:left;color:black; font-size:12px;}
+.detail_main{width:760px;float:right; text-align:left;border-left:solid 1px #808080;}
+.detail_main h5,h3 { margin-top:5px; text-align:center;}
+.detail_main h5 span{ color:red;}
+.detail_main h4{ padding-left:20px;}
+article{font-size:12px;}
+.detail_main p{padding-left:20px;line-height:24px;}

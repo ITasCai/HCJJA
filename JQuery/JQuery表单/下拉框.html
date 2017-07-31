@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>下拉框</title>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            //移到到右边
+            $("#btnAdd").click(function () {
+                $("#select1 option:selected").appendTo("#select2");
+            });
+
+            //全部移动到右边
+            $("#btnAdd_all").click(function () {
+                $("#select1 option").appendTo("#select2");
+            });
+
+            //移动到左边
+            $("#btnRemove").click(function () {
+                $("#select2 option:selected").appendTo("#select1");
+            });
+
+            //全部移动到左边
+            $("#btnRemove_all").click(function () {
+                $("#select2 option").appendTo("#select1");
+            });
+        });
+    </script>
+    <style>
+        .centent {
+            float: left;
+            margin-left: 10px;
+        }
+
+        button {
+            text-align: center;
+            width: 50px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="centent">
+        <select multiple="multiple" id="select1" style="width:100px;height:160px;">
+            <option value="1">篮球</option>
+            <option value="2">足球</option>
+            <option value="3">排球</option>
+            <option value="4">台球</option>
+            <option value="5">乒乓球</option>
+            <option value="6">羽毛球</option>
+            <option value="7">冰球</option>
+        </select>
+    </div>
+    <div class="centent">
+        <button id="btnAdd">&gt;</button><br />
+        <button id="btnAdd_all">&gt;&gt;</button><br />
+        <button id="btnRemove">&lt;</button><br />
+        <button id="btnRemove_all">&lt;&lt;</button>
+    </div>
+
+    <div class="centent">
+        <select multiple="multiple" id="select2" style="width: 100px;height:160px;">
+            <option value="8">棒球</option>
+        </select>
+    </div>
+
+
+</body>
+</html>

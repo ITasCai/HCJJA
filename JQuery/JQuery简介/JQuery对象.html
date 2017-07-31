@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $cr = $("#p1");
+            var cr = $cr[0];//通过[Index]
+            cr = $cr.get(0);//通过get(index)
+            alert(cr.childNodes.length);
+            for (var i = 0; i < $cr.childNodes.length; i++) {
+                alert($cr.childNodes[i].nodeValue);
+            }
+            });
+    </script>
+    <!--
+        JQuery对象：
+        jQuery 对象就是通过 jQuery($()) 包装 DOM 对象后产生的对象
+        jQuery 对象是 jQuery 独有的. 如果一个对象是 jQuery 对象, 
+        那么它就可以使用 jQuery 里的方法: $(“#persontab”).html();
+        jQuery 对象无法使用 DOM 对象的任何方法, 同样 DOM 对象也不能使用 jQuery 里的任何方法
+        约定：如果获取的是 jQuery 对象, 那么要在变量前面加上 $.
+        var $variable = jQuery 对象
+        var variable = DOM 对象
+
+        JQuery 对象转成 DOM 对象：
+        jQuery 对象不能使用 DOM 中的方法, 但如果 jQuery 没有封装想要的方法, 
+        不得不使用 DOM 对象的时候, 有如下两种处理方法:
+        (1) jQuery 对象是一个数组对象, 可以通过 [index] 的方法得到对应的 DOM对象.  
+        (2) 使用 jQuery 中的 get(index) 方法得到相应的 DOM 对象                    
+     -->
+</head>
+<body>
+    <div id="div1">时间
+        <p id="p1">昨天</p>
+        <p id="p2">今天</p>
+        <p id="p3">明天</p>
+    </div>
+    <div id="div2">兴趣
+        <ul>
+            <li>上网</li>
+            <li>睡觉</li>
+            <li>音乐</li>
+            <li>网球</li>
+        </ul>
+    </div>
+</body>
+</html>

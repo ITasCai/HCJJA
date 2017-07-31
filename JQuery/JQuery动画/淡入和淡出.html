@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>淡入和淡出</title>
+    <!--
+        fadeIn()方法和fadeOut()方法只改变元素的不透明度借以改变元素的显示状态.
+        通过改变元素的不透明度改变元素的是显示状态，同show()和hide()方法一样也可以添加速度参数。
+        也能添加回调事件函数。
+        -->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //淡入
+            $("#btn_fadein").click(function () {
+                $("p").fadeIn();
+            });
+
+            $("#btn_fadeout").click(function () {
+                $("p").fadeOut(1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>淡入淡出</h3>
+    <p>显示文字</p>
+    <button id="btn_fadein">淡入</button>
+    <button id="btn_fadeout">淡出</button>
+</body>
+</html>

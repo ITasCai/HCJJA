@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>下拉菜单</title>
+    <style>
+        body {
+        background-color:#f1e8e8;
+        }
+        #nav {
+        background-color:#f1bcbc;
+        width:300px;
+        height:30px;
+        line-height:30px;
+        }
+        ul {
+            list-style-type:none;
+        }
+        #nav li {
+            float:left;
+            width:100px;
+        }
+        .dropdown {
+            position:relative;
+            /*display:inline-block;*/
+        }
+        .dropdown-content {
+            width:100px;
+            display:none;
+            position:absolute;
+            left:10px;
+            top:30px;
+            background-color:#bfb9b9;
+            padding:5px 10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <ul id="nav">
+        <li><a href="#">首页</a></li>
+        <li class="dropdown"><a href="#">开发语言</a>
+        <ul class="dropdown-content">
+            <li>C#</li>
+            <li>Java</li>
+            <li>PHP</li>
+        </ul>
+        </li>
+    </ul>
+</body>
+</html>

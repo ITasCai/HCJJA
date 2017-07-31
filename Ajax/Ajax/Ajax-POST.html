@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ajax-POST</title>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        //POST请求数据
+        function LoadXMLDoc() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    $("#myDiv").html(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("POST", "POST.aspx", true);
+            //向一个打开但未发送的请求设置或添加一个 HTTP 请求。设置编码方式
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("username=guest&&age=25");
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="LoadXMLDoc();">POST请求数据</button>
+    <div id="myDiv"></div>
+</body>
+</html>

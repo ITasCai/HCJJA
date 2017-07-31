@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        table {
+            border-collapse:collapse;
+            text-align:center;
+        }
+            table td {
+                border:1px solid #808080;
+            }
+    </style>
+    <script src="../Scripts/jquery-3.1.1.js"> </script>
+    <script>
+        var student = {
+            "StuId": 1001,
+            StuName: "张三",
+            StuAge: 18,
+            Hobby: ["游泳", "健身", "荣耀"]
+        };
+
+        var user = ["张三", "李四", "王五"];
+        var user1 = [{ UserId: 1001, UserName: "张三", UserAge: 18, Hobby: ["游泳", "唱歌"] },
+                     { UserId: 1002, UserName: "李四", UserAge: 20, Hobby: ["游泳", "唱歌", "跳舞"] },
+                     { UserId: 1003, UserName: "王五", UserAge: 22, Hobby: "游泳" }];
+
+
+        //alert(student.StuId + "\n" + student.StuName + "\n" + student.StuAge + "\n" + student.Hobby);
+        //$.each(student, function (key,value) {
+        //    alert(student[key]);
+        //})
+        //$.each(user, function (key, value) {
+        //    alert(user[key]);
+        //})
+        //$.each(user1, function (key, u) {
+        //    //alert(u["UserId"] + ":" + u["UserName"] + ":" + u["UserAge"]);
+        //    //alert(user1[key].UserId);
+        //    alert(u.UserId + ":" + u.Hobby);
+        //})
+
+        var emp = {
+            employee: [{ name: "张三", age: 18, hobby: ["上网", "游戏"] },
+                      { name: "李四", age: 20, hobby: ["音乐", "足球"] },
+                      { name: "王五", age: 19, hobby: "篮球" }
+            ],
+            student: {
+                "username": "张三",
+                "age": 18,
+                "sex": "male"
+            }
+        };
+
+        $(document).ready(function () {
+            $("#btnAdd").click(function () {
+                $("#content").empty();//清空html
+                var table = $("<table></table>");
+                table.attr({ "width": "500","border":"1"});                
+                $.each(emp.employee, function (key, value) {
+                    var tr = $("<tr></tr>");
+                    var td_name = $("<td>" + value.name + "</td>");
+                    var td_age = $("<td>" + value["age"] + "</td>");
+                    var td_hobby = $("<td>" + value["hobby"] + "</td>");
+                    var td_del = $("<td></td>");
+                    var td_button = $("<input type='button' id='btnDel' value='删除'>");
+                    td_button.appendTo(td_del);
+                    tr.append(td_name);
+                    tr.append(td_age);
+                    tr.append(td_hobby);
+                    tr.append(td_del);
+                    table.append(tr);
+                });
+                $("#content").append(table);
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <button id="btnAdd">添加</button>
+    <div id="content" style="margin:0px auto; width:500px">
+
+    </div>
+</body>
+</html>

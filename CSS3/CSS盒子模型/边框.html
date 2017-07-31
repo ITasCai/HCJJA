@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>边框</title>
+    <meta charset="utf-8" />
+    <style>
+        div{width:200px; margin:10px; float:left; }
+        /*边框样式*/
+        .none{border-style:none;}
+        .dotted{border-style:dotted;}
+        .dashed{border-style:dashed;}
+        .solid{border-style:solid;}
+        .double{border-style:double;}
+
+        /*边框宽度*/
+         p{border-style:solid;}
+        .p1{border-width:1px;}
+        .p2{border-width:5px;}
+        .p3{border-width:10px;}
+        .p4{border-width:thin;}
+        .p5{border-width:medium;}
+        
+        /*边框样式*/
+        .p_red{border-color:red;}
+        .p_blue{border-color:blue;}
+        .p_green{border-color:green;}
+
+       
+        /*边框简写属性(可同时设置宽度、样式、颜色)
+         注意顺序为：1.边框宽度 2.边框样式 3.边框颜色*/
+        .p_simple1{border:1px solid #666;}
+        .p_simple2{border:medium double blue; }
+        .p_simple3{border:2px solid red;}
+
+         /*边框折叠*/
+        table{border-collapse:collapse; width:200px;}
+        table,th,td{border:1px solid green;}
+    </style>
+</head>
+<body>
+    <div>
+        <h2>边框样式</h2>
+        <p class="none">无边框</p>
+        <p class="dotted">虚线边框1</p>
+        <p class="dashed">虚线边框2</p>
+        <p class="solid">实线边框</p>
+        <p class="double">双边框</p>
+    </div>
+    <div>
+        <h2>边框宽度</h2>
+        <p class="p1">边框宽度是1px</p>
+        <p class="p2">边框宽度是5px</p>
+        <p class="p3">边框宽度是10px</p>
+        <p class="p4">边框宽度是thin</p>
+        <p class="p5">边框宽度是medium</p>
+    </div>
+    <div>
+        <h2>边框颜色</h2>
+        <p class="p_red">红色边框</p>
+        <p class="p_blue">蓝色边框</p>
+        <p class="p_green">绿色边框</p>
+    </div>
+    <div>
+        <h2>边框简写属性</h2>
+        <p class="p_simple1">将这段文本加上边框</p>
+        <p class="p_simple2">将这段文本加上边框</p>
+        <p class="p_simple3">将这段文本加上边框</p>
+    </div>
+    <div>
+        <h2>边框折叠</h2>
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>18</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>20</td>
+                <td>女</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

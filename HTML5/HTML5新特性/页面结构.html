@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            margin: 0px auto;
+            width: 960px;
+        }
+
+        header, main, footer {
+            border: solid 1px #666;
+            padding: 10px;
+            margin: 6px;
+            width: 900px;
+        }
+
+        header {
+            height: 100px;
+        }
+
+        main {
+            height: 300px;
+        }
+
+        footer {
+            height: 100px;
+        }
+
+        nav ul li {
+            float: left;
+            width: 100px;
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-family: 宋体;
+            font-weight:bold;
+            font-size:18px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!--通常页面有四个主要组件：
+            带导航的页头、显示在主体内容区域的文章、显示次要信息的附注栏以及页脚。-->
+        <!--role:增强文本的可读性和语义化，主要是供障碍人士使用-->
+        <!--创建页眉
+            如果页面中有一块包含一组介绍性或导航性内容的区域，应该用header元素对其进行标记。-->
+        <header role="banner">
+            <!--标记导航nav:指向页面中的内容，也可以指向其他页面或资源。-->
+            <h2 style="text-align:center;color:red">.NET学习博客园</h2>
+            <nav>
+                <ul>
+                    <li><a href="http://music.baidu.com" target="_blank">C#</a></li>
+                    <li><a href="http://image.baidu.com" target="_blank">SQL Server</a></li>
+                    <li><a href="http://v.baidu.com" target="_blank">ADO.NET</a></li>
+                    <li><a href="#" target="_blank">Winform</a></li>
+                    <li><a href="#" target="_blank">HTML5</a></li>
+                    <li><a href="#" target="_blank">CSS3</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--标记页面主要区域:main
+            注意：该元素在一个页面仅使用一次-->
+        <main role="main">
+            <!--article:表示文档、页面、应用或网站中一个独立的容器，其内容可以包含各种类型的内容
+                它可以是一篇帖子、一篇杂志或文章、一则评论等
+                一个页面可以有多个article元素
+                一个article可以包含一个或多个section元素。-->
+            <article>
+                <!--文章内容-->
+                <!--section标签定义文档中的节，比如章节、页眉、页脚或文档中的其他部分
+                    section和article的区别：section在本质上组织性和结构性更强，article代表的是自包含的容器。-->
+                <section>
+                    <h1>如何学好C#</h1>
+                    <p>多学，多练，努力努力，加油加油!</p>
+                </section>
+                <section>
+                    <h1>如何学好HTML5</h1>
+                    <p>上课认真听讲,课后多练习，加油加油!</p>
+                </section>
+            </article>
+        </main>
+        <!--创建页脚 footer
+            通常页脚位于所有元素的末尾-->
+        <footer role="contentinfo">
+            <p><small>&copy;Copyright All About</small></p>
+        </footer>
+    </div>
+</body>
+</html>

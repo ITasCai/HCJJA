@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JavaScript语法</title>
+    <!--2.使用外部JS文件示例-->
+    <!--<script src="../test.js"></script>-->
+    <script>
+        //1.使用Script标记示例
+        //document.write("欢迎使用JavaScript");
+
+        //3.在事件处理程序中使用JavaScript
+        function ShowHello() {
+            alert("你好");
+        }
+        /*4.使用Alert/Confirm/Write方法
+            使用窗口的Alert方法，可以生成一个对话框
+            使用窗口的Confirm方法，可以生成一个确认对话框
+            使用document的Write方法可以创建页面内容
+          */
+        document.write("欢迎你");
+        alert("欢迎你");
+        if (confirm("确定要关闭当前窗口吗?")) {
+            window.close();
+            /*这是火狐浏览器自身做的限制，所以只能由用户解除这个才行：
+            打开火狐浏览器，地址栏输入about:config，
+            找到dom.allow_scripts_to_close_windows这项（支持Ctrl+F搜索），
+            默认值为false，双击修改成true，就可以使用脚本关闭窗口了.*/
+        }
+    </script>
+</head>
+<body>
+    <!--
+        JavaScript语法规则，如：
+        区分大小写
+        使用成对的符号
+        使用注释
+        JavaScript作为客户端程序嵌入网页
+        使用Script标记
+        使用外部文件
+        在事件处理程序中使用JavaScript
+
+    -->
+
+    <!--数据类型
+    6种原始类型：number string boolean null undefined object(引用类型)
+    JavaScript 是一种弱类型或者说动态语言。这意味着不用提前声明变量的类型，
+    在程序运行过程中，类型会被自动确定。这也意味着可以使用同一个变量保存不同类型的数据：
+    var tmp = 12;
+    tmp = “Hello World!”;
+    tmp = true;-->
+        -->
+    <!--<input type="button" value="你好" onclick="alert('你好');" />-->
+    <input type="button" name="name" value="你好" onclick="ShowHello();" />
+</body>
+</html>

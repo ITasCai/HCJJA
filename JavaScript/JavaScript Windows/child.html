@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>子窗口</title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            margin: 0px auto;
+            width: 300px;
+        }
+    </style>
+    <script>
+        function Add() {
+            alert("增加成功");
+            //window.opener 返回的是创建当前窗口的那个窗口的引用
+            window.opener.document.getElementById("txtReturn").value = document.getElementById("txtDeptId").value;
+            //window.opener.document.getElementsByName("text1")[0].value = "123";
+            //window.opener.document.all.text1.value = "222";
+            //window.opener.document.getElementsByClassName("return_value")[0].value = "123";
+            window.close();
+
+            //主窗口的刷新
+            window.opener.location.reload();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label>部门编号:</label>
+        <input type="text" name="name" value="" id="txtDeptId" /><br /><br />
+
+        <label>部门名称:</label>
+        <input type="text" name="name" value="" id="txtDeptName" /><br /><br />
+        <input type="button" name="name" value="增加" onclick="Add();" />
+        <input type="button" name="name" value="关闭" onclick="window.close();" />
+    </div>
+</body>
+</html>

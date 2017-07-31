@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>表头排序</title>
+    <!--
+     该实现的主要思想是：获取鼠标点击的表头单元格的列号，遍历数据行，获取每个 <tr>中的html，同时获取每个
+    <tr>标签下对应获取到的列号的<td>标签中的内容，并取得<th>标签的type属性值，将获取<tr>的html、<td>的内容
+     和<th>的type属性值拼接成字符串添加到数组array中，然后将表格<tr>中的html全部置空，根据type属性值的不同
+     采用不同的方法对<td>的内容进行比较，根据比较结果对数组array进行排序，然后将排序后的数组元素重新赋值给
+     已经置空的<tr>。如果已经对该列排序过了，则直接对数组进行倒置。
+    -->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(function () {
+            var tableObject = $("#tableSort");//获取table对象
+            var tbHead = tableObject.children("thead");//获取table对象下的thead
+            var tbHeadTh = tbHead.find("tr th");//获取thead-tr-th
+            var tbBody = tableObject.children("tbody");// 获取table对象下的tbody
+            var tbBodyTr = tbBody.find("tr");//获取tbody下的tr
+            var sortIndex = -1;
+            tbHeadTh.each(function () { //遍历thead的tr下的th
+                var thisIndex = tbHeadTh.index($(this));//获取th所在的列号
+                //给表头th增加鼠标位于上方时发生的事件
+                //$(this).mouseover(function () {
+                //    tbBodyTr.each(function () {//遍历tbody下的tr
+                //        var tds = $(this).find("td");//获取列号为参数index的td对象集合
+                //        $(tds[thisIndex]).addClass("hover");//给列号为参数index的td对象添加样式
+                //    });
+                //}).mouseout(function () {//给表头th增加鼠标离开时的事件
+                //    tbBodyTr.each(function () {
+                //        var tds = $(this).find("td");
+                //        $(tds[thisIndex]).removeClass("hover");//鼠标离开时移除td对象上的样式
+                //    });
+                //});
+
+                $(this).click(function () {//给当前表头th增加点击事件
+                    var dataType = $(this).attr("type");//点击时获取当前th的type属性值。
+                    checkColumnValue(thisIndex, dataType);
+                });
+            });
+            $("tbody tr").removeClass(); //先移除tbody下tr的所有css类
+            //table中tbody中tr鼠标位于上面时添加颜色,离开时移除颜色
+            $("tbody tr").mouseover(function () {
+                $(this).addClass("hover");
+            }).mouseout(function () {
+                $(this).removeClass("hover");
+            });
+
+            //对表格进行排序
+            function checkColumnValue(index, type) {
+                var trsValue = new Array();
+                tbBodyTr.each(function () {
+                    var tds = $(this).find("td");
+                    //获取行号为index列的某一行的单元格内容与该单元格的所在行的行内容添加到数组trsValue中
+                    trsValue.push(type + ".separator" + $(tds[index]).html() + ".separator" + $(this).html());
+                    $(this).html();
+                });
+
+                var len = trsValue.length;
+                if (index == sortIndex) {
+                    //如果已经排序则直接倒序
+                    trsValue.reverse();
+                } else {
+                    for (var i = 0; i < len; i++) {
+                        //split()方法用于把一个字符串分割成字符串数组
+                        //获取每行分割后数组的第一个值,即此列的数组类型,定义了字符串\数字
+                        type = trsValue[i].split(".separator")[0];
+                        for (var j = i + 1; j < len; j++) {
+                            //获取每行分割成数组的第二个值，即文本值
+                            value1 = trsValue[i].split(".separator")[1];
+                            //获取下一行分割成数组的第二个值，即文本值
+                            value2 = trsValue[j].split(".separator")[1];
+                            //数字、字符串比较
+                            if (type == "number") {
+                                value1 = value1 == "" ? 0 : value1;
+                                value2 = value2 == "" ? 0 : value2;
+                                if (parseFloat(value1) > parseFloat(value2)) {
+                                    var temp = trsValue[j];
+                                    trsValue[j] = trsValue[i];
+                                    trsValue[i] = temp;
+                                }
+                            } else {
+                                if (value1.localeCompare(value2) > 0) {
+                                    var temp = trsValue[j];
+                                    trsValue[j] = trsValue[i];
+                                    trsValue[i] = temp;
+                                }
+                            }
+                        }
+                    }
+                }
+                for (var i = 0; i < len; i++) {
+                    $("tbody tr:eq(" + i + ")").html(trsValue[i].split(".separator")[2]);
+                }
+
+                sortIndex = index;
+            }
+
+        });
+    </script>
+    <style>
+        table {
+            margin: 10px auto;
+            width: 600px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+            table thead tr {
+                background-color: #ccc;
+            }
+
+        th, td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        .sequence {
+            text-align: center;
+        }
+
+        .hover {
+            background-color: #3399FF;
+        }
+    </style>
+</head>
+<body>
+    <!--<div id="tip">默认无排列规则(<span class="sj">----</span>)</div>-->
+    <table id="tableSort" class="table">
+        <thead>
+            <tr>
+                <th type="number">编号</th>
+                <th type="string">姓名</th>
+                <th type="string">性别</th>
+                <th type="number">分数</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hover">
+                <td class="sequence">1031</td>
+                <td>李渊</td>
+                <td>男</td>
+                <td>654</td>
+            </tr>
+            <tr>
+                <td class="sequence">1021</td>
+                <td>张扬</td>
+                <td>男</td>
+                <td>624</td>
+            </tr>
+            <tr>
+                <td class="sequence">1011</td>
+                <td>吴敏</td>
+                <td>女</td>
+                <td>632</td>
+            </tr>
+            <tr>
+                <td class="sequence">1026</td>
+                <td>李小明</td>
+                <td>男</td>
+                <td>610</td>
+            </tr>
+            <tr>
+                <td class="sequence">1016</td>
+                <td>周谨</td>
+                <td>女</td>
+                <td>690</td>
+            </tr>
+            <tr>
+                <td class="sequence">1041</td>
+                <td>谢小敏</td>
+                <td>女</td>
+                <td>632</td>
+            </tr>
+            <tr>
+                <td class="sequence">1072</td>
+                <td>刘明明</td>
+                <td>男</td>
+                <td>633</td>
+            </tr>
+            <tr>
+                <td class="sequence">1063</td>
+                <td>蒋忠公</td>
+                <td>男</td>
+                <td>675</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

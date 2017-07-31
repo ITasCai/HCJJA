@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JQuery-post</title>
+    <!--
+       jQuery.post(url, [data], [callback], [type])，返回值:XMLHttpRequest
+       这是一个简单的 POST 请求功能以取代复杂 $.ajax 。请求成功时可调用回调函数。
+       $.post，这个函数其实就是对$.ajax进行了更进一步的封装，减少了参数，简化了操作，但是运用的范围更小了。
+       $.post简化了数据提交方式，只能采用POST方式提交。只能是异步访问服务器，不能同步访问，不能进行错误处理。
+       在满足这些情况下，我们可以使用这个函数来方便我们的编程，它的主要几个参数，
+       像method，async等进行了默认设置，我们不可以改变的。
+
+       url:发送请求地址。
+
+       data:待发送 Key/value 参数。
+
+       callback:发送成功时回调函数。
+
+       type:返回内容格式，xml, html, script, json, text,_default。
+
+       $.getJSON，这个是进一步的封装，也就是对返回数据类型为Json进行操作。
+       里边就三个参数，需要我们设置，非常简单：url,[data],[callback]。
+       -->
+
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $.post(
+                    "ashx/PostDemo.ashx",//请求的url
+                    {},//传递的参数
+                    function (data, status) {
+                        if (status == "success") {
+                            alert(data);
+                        }
+                    });
+            });
+
+            $("#btn2").click(function () {
+                alert("123");
+                $.post(
+                    "ashx/PostDemo.ashx",
+                    {
+                        UserName: $("#UserName").val(),
+                        Password: $("#Password").val(),
+                        UserAge: $("UserAge").val()
+                    },
+                    function (data, status) {
+                        if (status == "success") {
+                            alert(data.UserName);
+                        }
+                    },"json");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn1">POST简单请求</button>
+    <button id="btn2">POST参数请求</button>
+    <button id="btn3">POST调用方法</button><br />
+    用户名:<input type="text" name="name" id="UserName" value="" />
+    密码:<input type="password" name="name" id="Password" value="" />
+    年龄:<input type="text" name="name" id="UserAge" value="" />
+
+</body>
+</html>

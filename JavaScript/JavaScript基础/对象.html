@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <!--
+    JavaScript中的所有事物都是对象：字符串、数组、数值、函数等。JS中并没有类的概念，
+    但是我们可以利用JS的语法特征，以类的思想来创建对象。
+    -->
+    <script>
+        //1.原始方法(先通过object构造器new一个对象)
+        var obj = new Object();
+        obj.name = "张三";//为对象添加属性
+        obj.age = 21;
+        obj.ShowName = function () {//为对象添加方法
+            alert(this.name);//this是指调用该函数的对象，这里是指obj
+        }
+        obj.ShowAge = function () {
+            alert(this.age);
+        }
+        obj.ShowName();
+        obj.ShowAge();
+        /*
+        上面的方式通过new关键字生成一个对象，然后根据JS是动态语言的特性添加属性和方法，构造成一个对象
+        其中this表示调用该方法的对象，这种方式的问题是如果需要多次创建对象，则需要重复代码多次，不利于代码的复用。
+        */
+
+        //2.通过字面量方式创建。将成员信息写到{}中，并赋值给一个变量，此时这个变量就是一个对象。
+        var p1 = {};  //如果{}中为空，则创建一个空对象。
+        var car = {
+            brand: "奥迪",
+            color: "red",
+            price: 50000
+        }
+        var p2 = {
+            name: "李四",
+            age: 18,
+            sex: "女",
+            mycar: car,//对象的属性也可以是对象也可以是方法
+            msg: function () {
+                alert("姓名:" + this.name + " 年龄:" + this.age + " 性别:" + this.sex);
+            }
+        };
+
+        //可以给对象的成员进行赋值，也可以获取对象的成员信息。
+        p2.name = "王五";
+        p2.age = 20;
+        p2["sex"] = "男";
+        //p2.mycar.brand = "宝马";
+        p2["mycar"].brand = "宝马";
+        p2.msg();
+        document.write(p2.mycar.brand);
+
+        //3.工厂方法
+        function CreateObj(name, age, sex) {//构造对象时，可以传入初始化参数
+            var obj = new Object();//创建对象
+            obj.name = name;
+            obj.age = age;
+            obj.sex = sex;
+            obj.ShowInfo = function () {
+                alert("姓名:" + this.name + " 年龄:" + this.age + " 性别:" + this.sex);
+            }
+
+            return obj;//返回对象
+        }
+        var obj1 = CreateObj("李四", 20, "男");
+        obj1.ShowInfo();
+        var obj2 = CreateObj("王五", 21, "女");
+        obj2.ShowInfo();
+        //4.构造函数方式
+        //定义一个构造函数，用来生成对应的对象，可以类比C#中的构造函数
+        function Person(name, age) {
+            /*
+            当调用new Person()的时候，在执行第一行代码前，先生成一个Person对象，
+            并将对象在内存中的索引赋值给this关键字，此时可以通过this关键字操作新生成的对象。
+            如下面的添加属性或方法 this.name=name;
+            this关键字为当前对象，即this关键字引用的对象的name属性赋值
+            实际相当于为当前对象添加name属性后，再为其name属性赋值。
+            */
+            this.name = name;
+            this.age = age;
+            this.ShowInfo = function () {//为对象添加方法
+                alert("姓名:" + this.name + " 年龄:" + this.age);
+            }
+            //将当前对象返回给赋值符号左边的变量(不必明确使用return)
+        }
+
+        var obj1 = new Person("john", 21);//生成一个Person对象
+        var obj2 = new Person("jim", 22);
+        obj1.ShowInfo();
+        obj2.ShowInfo();
+
+        /*构造函数的方式和工厂方式一样，会为每个对象创建独享的函数对象。当然也可以将这些函数 
+        对象定义在构造函数外面，这样又有了对象和方法相互独立的问题。 */
+
+
+        /*JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，采用完全独立于语言的文本格式，
+        是理想的数据交换格式。同时，JSON是 JavaScript 原生格式.*/
+    </script>
+</head>
+<body>
+
+</body>
+</html>

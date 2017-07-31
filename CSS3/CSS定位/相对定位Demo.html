@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>相对定位Demo</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #nav {
+            margin:5px auto;
+            height: 300px;
+            width: 450px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .list {
+            float: left;
+            width: 80px;
+            border: 1px solid gray;
+            background-color:#e0dbdb;
+        }
+
+        ul li ul {
+            text-align: center;
+            overflow: hidden;
+            width: 80px;
+            display: none;
+            position: relative;
+            top:2px;
+        }
+
+        ul li:hover ul {
+            display: block;
+        }
+
+        ul li ul li {
+            border: 1px solid black;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <ul>
+            <li class="list"><a href="#">首页</a></li>
+            <li class="list">
+                <a href="#">产品</a>
+                <ul>
+                    <li><a href="#">手机</a></li>
+                    <li><a href="#">单反</a></li>
+                    <li><a href="#">微单</a></li>
+                    <li><a href="#">硬盘</a></li>
+                    <li><a href="#">鼠标</a></li>
+                </ul>
+            </li>
+            <li class="list">
+                <a href="#">服务</a>
+                <ul>
+                    <li><a href="#">主机</a></li>
+                    <li><a href="#">域名</a></li>
+                    <li><a href="#">DDOS</a></li>
+                </ul>
+            </li>
+            <li class="list"><a href="#">新闻</a></li>
+            <li class="list"><a href="#">联系</a></li>
+        </ul>
+    </div>
+</body>
+</html>

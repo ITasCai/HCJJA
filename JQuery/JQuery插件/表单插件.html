@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>表单插件</title>
+    <!--jQuery Form插件是一个优秀的Ajax表单插件，可以非常容易地、无侵入地升级HTML表单以支持Ajax。
+    jquery Form有两个核心方法 -- ajaxForm() 和 ajaxSubmit()，
+    它们集合了从控制表单元素到决定如何管理提交进程的功能。
+    另外，插件还包括其他的一些方法： formToArray()、formSerialize()、fieldSerialize()、fieldValue()、
+    clearForm()、clearFields() 和 resetForm()等。
+    下载地址： http://malsup.com/jquery/form/#download
+    核心方法 -- ajaxForm() 和 ajaxSubmit()-->
+    <!--通过Form插件的两个核心方法，都可以在不修改表单的HTML代码结构的情况下，
+    轻易地将表单的提交方式升级为Ajax提交方式
+    ajaxForm() 和 ajaxSubmit() 都能接受0个或1个参数，当为单个参数时，该参数既可以是一个回调函数，
+    也可以是一个options对象，上面的例子就是回调函数，-->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script src="../Scripts/jquery.form.js"></script>
+    <script>
+
+        var options = {
+            target: "#output1",///把服务器返回的内容放入id为output的元素中
+            beforeSubmit: showRequest,//提交前的回调函数
+            success: showResponse,//提交后的回调函数
+            url: "success.aspx",///默认是form的action， 如果申明，则会覆盖
+            type: "post",//默认是form的method（get or post），如果申明，则会覆盖
+            dataType: null,//html(默认), xml, script, json...接受服务端返回的类型
+            clearForm: true,//成功提交后，清除所有表单元素的值
+            resetForm: true,//成功提交后，重置所有表单元素的值
+            timeout: 3000//限制请求的时间，当请求大于3秒后，跳出请求
+        };
+
+        function showRequest(formData, jqForm, options) {
+            //formData: 数组对象，提交表单时，Form插件会以Ajax方式自动提交这些数据，格式如：[{name:user,value:val },{name:pwd,value:pwd}]
+            //jqForm:   jQuery对象，封装了表单的元素
+            //options:  options对象
+            var queryString = $.param[formData];//name=1&address=2
+            var formElement = jqForm[0];//将jqForm转换为DOM对象
+            var address = formElement.address.value;//访问jqForm的DOM元素
+            alert(address);
+            return true;  //只要不返回false，表单都会提交,在这里可以对表单元素进行验证
+        }
+        function showResponse(responseText, statusText) {
+
+            alert("状态:" + statusText + "\n" + "返回的内容是:\n" + responseText);
+            ////dataType=xml
+            //var name = $('name', responseXML).text();
+            //var address = $('address', responseXML).text();
+            //$("#xmlout").html(name + "  " + address);
+            ////dataType=json
+            //$("#jsonout").html(data.name + "  " + data.address);
+
+            //dataType = json
+            //alert(address);
+            //alert(data.name + "  " + data.address);
+        }
+
+        $(document).ready(function () {
+            //// 第一种方式:ajaxForm()
+            //$("#myForm").ajaxForm(function () {
+            //    $('#output1').html("提交成功！欢迎下次再来！").show();
+            //});
+
+            ////第二种方式:ajaxSubmit()
+            //$("#myForm1").submit(function () {
+            //    $(this).ajaxSubmit(function () {
+            //        $("#output2").html("提交成功").show();
+            //    });
+            //    return false;
+            //});
+
+            //采用$.ajax()
+            $("#test").click(function () {
+                var option = {
+                    url: "success.aspx",
+                    type: "post",
+                    dataType: "text",
+                    data: $("#myForm").serialize(),//$("#form1").serialize()将表单元素的数据转化为字符串，然后通过$.ajax()执行异步请求资源。
+                    success: function (data) {
+                        if (data.length > 0)
+                            $("#output1").html(data);
+                    }
+                };
+                $.ajax(option);
+                return false;
+            });
+
+            var option1 = {
+                //data: $("#myForm").serialize(),
+                //success: function (data) {
+                //    $("#output2").html(data);
+                //}
+            };
+            // ajaxForm
+            $("myForm1").ajaxForm(option1);
+        });
+    </script>
+</head>
+<body>
+    <form id="myForm" action="success.aspx" method="post">
+        用户名： <input type="text" name="username" /> <br />
+        电子邮箱： <input type="text" name="address" /><br />
+        <input type="submit" id="test" value="提交" /> <br />
+        <div id="output1"></div>
+    </form>
+    <form id="myForm1" action="index.ashx" method="post">
+        名称： <input type="text" name="username" /> <br />
+        地址： <input type="text" name="address" /><br />
+        <input type="submit" id="test1" value="提交" /> <br />
+        <div id="output2"></div>
+    </form>
+
+</body>
+</html>

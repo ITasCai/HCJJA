@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>日期</title>
+    <script>
+        /*
+        获取日期
+        Date 对象用于处理日期和时间。
+        可以通过 new 关键词来定义 Date 对象。以下代码定义了名为 myDate 的 Date 对象：
+        */
+        var myDate = new Date();//Date对象自动使用当前的日期和时间作为其初始值
+        document.write("获取当前年:" + myDate.getFullYear() + "<br/>");//4为 2017
+        document.write("获取当前月:" + (myDate.getMonth() + 1) + "<br/>");//0-11,0代表1月
+        document.write("获取当前日:" + myDate.getDate() + "<br/>");//当前日(1-31)
+        document.write("获取当前星期几:" + myDate.getDay() + "<br/>");//0-6,0代表星期天
+        document.write("获取当前小时数:" + myDate.getHours() + "<br/>");
+        document.write("获取当前分钟数:" + myDate.getMinutes() + "<br/>");
+        document.write("获取当前秒数:" + myDate.getMinutes() + "<br/>");
+        document.write("获取当前日期:" + myDate.toLocaleDateString() + "<br/>")//2017/07/27
+        document.write("获取当前时间:" + myDate.toLocaleTimeString().toLocaleString() + "<br/>");
+        document.write("从 1970/01/01 至今一共是:" + myDate.getTime() + "毫秒<br/>");
+        //设置日期
+        var today = new Date();
+        today.setFullYear(2017);//设置年份
+        today.setMonth(6);//设置月份
+        today.setDate(19);//设置日
+        document.write(today.toLocaleDateString() + "<br/>");//获取设置的日期
+        today.setFullYear(2022, 11, 22);
+        document.write(today.toLocaleDateString() + "<br/>");//获取设置的年月日
+
+        //例:如何使用 getDay() 和数组来显示星期，而不仅仅是数字。
+        var d = new Date();
+        var weekday = new Array(7);
+        weekday[0] = "星期日";
+        weekday[1] = "星期一";
+        weekday[2] = "星期二";
+        weekday[3] = "星期三";
+        weekday[4] = "星期四";
+        weekday[5] = "星期五";
+        weekday[6] = "星期六";
+        document.write("今天是:" + weekday[d.getDay()] + "<br/>");
+        // 例2:计算200天后的日期
+        var day = new Date();
+        day.setDate(day.getDate() + 200);
+        document.write("200天后的日期:" + day.toLocaleDateString() + "<br/>");
+
+        //例3:对日期进行比较
+        //var date1 = new Date();
+        //date1.setFullYear(2017, 8, 12);
+        //var date2 = new Date();
+        //if (date1 > date2) {
+        //    alert("未过期");
+        //}
+        //else {
+        //    alert("已过期");
+        //}
+
+       /* setInterval() - 间隔指定的毫秒数不停地执行指定的代码。
+        setTimeout() - 暂停指定的毫秒数后执行指定的代码*/
+        //例4：显示时钟
+        function StartTime() {
+            var time = new Date();
+            var year = time.getFullYear();//年
+            var month = time.getMonth() + 1;//月
+            var day = time.getDate();//日
+            var hour = time.getHours();//时
+            var minute = time.getMinutes();//分
+            var second = time.getSeconds();//秒
+            //如果是单位数字，前面补0
+            //month = month < 10 ? "0" + month : month;
+            //day = day < 10 ? "0" + day : day;
+            //hour = hour < 10 ? "0" + hour : hour;
+            //minute = minute < 10 ? "0" + minute : minute;
+            //second = second < 10 ? "0" + second : second;
+            //或者采用函数
+            month = CheckTime(month);
+            day = CheckTime(day);
+            hour = CheckTime(hour);
+            minute = CheckTime(minute);
+            second = CheckTime(second);
+            var str = year + "年" + month + "月" + day + "日" +
+                      hour + ":" + minute + ":" + second;
+            document.getElementById("result").innerHTML = str;
+            //延时器
+            window.setTimeout("StartTime()", 1000);
+        }
+
+        function CheckTime(value) {
+            if (value < 10) {
+                value = "0" + value;
+            }
+            return value;
+        }
+        //倒计时
+        function TimeMsg() {
+            setTimeout("alert('爆炸')", 5000);
+        }
+
+        var content = 0;//初始值为0
+        var t;//累计值
+
+        //开始计时
+        function TimeCount() {
+            document.getElementById("content").value = content;
+            content = content + 1;
+            t = setTimeout("TimeCount()", 100);
+        }
+        //停止计时
+        function StopCount() {
+            clearTimeout(t);
+        }
+        //用户有十秒钟的时间看协议，超过十秒钟，“同意”按钮将生效
+        var seconds = 10;
+        //计时器ID
+        var setIntervalID;
+        function MakeSure() {
+
+            var btn = document.getElementById("btnOK");//获取按钮
+            if (seconds <= 0) {
+                btn.value = "同意";
+                btn.disabled=false;//禁用按钮
+                clearInterval(setIntervalID);//停止计时器
+            } else {
+                btn.value = "请仔细阅读协议【" + seconds + "】";
+            }
+            seconds = seconds - 1;//每次减少1秒
+        }
+
+        setIntervalID = setInterval("MakeSure()", 1000);
+    </script>
+</head>
+<body onload="StartTime();">
+    <div id="result"></div>
+    <input type="button" name="name" value="倒计时5秒钟" onclick="TimeMsg();" />
+    <div>
+        <input type="button" name="name" value="开始" onclick="TimeCount();" />
+        <input type="text" id="content" name="name" size="10" value="" />
+        <input type="button" name="name" value="停止" onclick="StopCount();" />
+    </div>
+    <div>
+        <textarea cols="25" rows="8">
+            请仔细阅读协议。
+        </textarea><br />
+        <input type="button" name="name" value="同意" id="btnOK" disabled="disabled" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>History 对象</title>
+    <!--
+        History 对象包含用户（在浏览器窗口中）访问过的 URL。
+        History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。
+        history.back() - 与在浏览器点击后退按钮相同(加载 history 列表中的前一个 URL。)
+        history.forward() - 与在浏览器中点击按钮向前相同(加载 history 列表中的下一个 URL。)
+        history.go() - 加载 history 列表中的某个具体页面。
+        -->
+    <script>
+        //下面一行代码执行的操作与单击后退按钮执行的操作一样：
+        function goBack() {
+            history.back();
+        }
+        //下面一行代码执行的操作与单击一次后退按钮执行的操作一样：
+        function Go() {
+            history.go(-1);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Back" onclick="goBack();">
+    <input type="button" value="go" onclick="Go();">
+</body>
+</html>

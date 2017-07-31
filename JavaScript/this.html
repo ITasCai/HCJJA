@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        //function DisplayName(name) {
+        //    alert("欢迎进入JavaScript世界,"+name);
+        //}
+        var color = new Array("红色","蓝色","绿色");
+        for (var prop in color) {
+            var record = "color ";
+            record += prop + "=" + color[prop] + "<br/>";
+            document.write(record);
+        }
+    </script>
+</head>
+<body>
+    <form action="/" method="post" id="form1">
+        <input type="text" name="text1" size="20" onchange="DisplayName(this.form.text1.value);" value="" />
+    </form>
+</body>
+</html>

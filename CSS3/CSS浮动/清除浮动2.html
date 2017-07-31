@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>清除浮动2</title>
+    <!--
+        1.一个块元素如果没有浮动，父元素没有设置高度，那么高度就是由里面的子元素撑开的
+        2.如果子元素设置了浮动，脱离了标准文档流，那么父元素的高度将被其忽略
+        3.如果不清除浮动，父元素会出现高度不够，那样的话，background等属性将得不到正确的解析
+        4.清除浮动影响的是元素本身的浮动，对其他元素浮动没有影响，只能对块元素有效
+        -->
+
+    <style>
+        .box {
+            border: 1px solid black;
+            background-color:aqua;
+            /*width:150px;*/
+        }
+
+        .div1 {
+            background-color: red;
+            width: 50px;
+            height: 50px;
+            float: left;
+        }
+
+        .div2 {
+            background-color: blue;
+            width: 50px;
+            height: 50px;
+            float: left;
+        }
+
+        .div3 {
+            background-color: yellow;
+            width: 50px;
+            height: 50px;
+            float: left;
+        }
+
+        .div4 {
+            background-color: green;
+            width: 50px;
+            height: 50px;
+            /*float: left;*/
+            clear:both;
+        }
+   
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div1">div1</div>
+        <div class="div2">div2</div>
+        <div class="div3">div3</div>
+        <div class="div4">div4</div>
+    </div>
+</body>
+</html>

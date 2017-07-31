@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>外边距</title>
+    <meta charset="utf-8" />
+    <!--外边距：margin
+        围绕在元素边框的空白区域是外边距。
+        设置外边距会在元素外创建额外的“空白”。
+        设置外边距的最简单的方法就是使用 margin 属性，这个属性接受任何长度单位、百分数值甚至负值。
+        margin-top: 1 px 上外边距1像素
+        margin-right : 2 px 有外边距2像素
+        margin-bottom : 2 px 下外边距2像素
+        margin-left : 1 px  左外边距1像素
+        margin :3px 5px 7px 4px;  上边距3 右边距4 下边距7 左边距4
+        margin :3px 5px; 上下外边距3像素  左右外边距5像素
+        margin :3px 5px 7px; 上外边距3像素   左右外边距5像素 下外边距7像素
+        margin :8px; 上右下左外边距为8像素
+        注意：设置四个属性时，按照顺时针方向，依次为上、右。下、左
+        页面居中对齐属性：margin： 0px auto;
+        -->
+    <style>
+        /*div {
+            border:1px solid black;
+            width:300px;
+            height:50px;
+        }*/
+        #div1 {
+         /*margin-top:20px;
+         margin-right:10px;
+         margin-bottom:20px;
+         margin-left:10px;*/
+         margin:20px 10px 20px 10px;
+         background-color:aqua;
+        }
+        #div2 {
+           width:300px;
+           color:red;
+           margin:0px auto;
+           background-color:#808080;
+        }
+    </style>
+</head>
+<body>
+    <div>没有指定外边距</div>
+    <div id="div1">
+        带有外边距的显示效果
+    </div>
+    <div>
+        没有指定外边距
+    </div>
+
+    <div id="div2">
+        这段文字显示居中
+    </div>
+</body>
+</html>

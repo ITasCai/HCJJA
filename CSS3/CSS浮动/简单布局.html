@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>简单布局</title>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 960px;
+            margin: 10px auto;
+            border: 1px solid gray;
+        }
+
+        .header {
+            background-color: gray;
+            color: white;
+            height: 120px;
+        }
+
+        .logo {
+            height: 70px;
+            font-weight: bold;
+            color: white;
+            font-size: 25px;
+            padding-top:20px;
+        }
+
+            .logo p {
+                margin: 0px auto;
+                width:200px;
+            }
+
+        .nav {
+            height: 30px;
+            background-color: purple;
+        }
+
+            .nav ul {
+                width: 100%;
+                list-style-type: none;
+                padding-top:5px;
+            }
+
+                .nav ul li {
+                    float: left;
+                }
+
+                    .nav ul li a {
+                        width: 100px;
+                        color: white;
+                        text-decoration: none;
+                        font-weight:bold;
+                        padding:0px 20px;
+                        clear:both;
+                    }
+                       .nav ul li a:hover{
+                      background-color:#ff3300;
+                    }
+
+        .content {
+            margin: 0px auto;
+            clear: both;
+        }
+
+        .left {
+            width: 200px;
+            padding: 5px;
+            float: left;
+        }
+
+            .left h3 {
+                text-align: center;
+            }
+
+            .left ul {
+                list-style-type: square;
+            }
+
+        .right {
+            border-left: 1px solid gray;
+            padding: 5px;
+            float: left;
+        }
+
+        .footer {
+            height: 50px;
+            background-color: gray;
+            color: white;
+            padding-top: 10px;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <p>.NET学习博客园</p>
+            </div>
+
+            <div class="nav">
+                <ul>
+                    <li><a href="#">网站首页</a></li>
+                    <li><a href="#">新闻资讯</a></li>
+                    <li><a href="#">前沿技术</a></li>
+                    <li><a href="#">技术专题</a></li>
+                    <li><a href="#">实训项目</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="left">
+                <h3>.NET课程分类</h3>
+                <ul>
+                    <li>C#语言程序设计</li>
+                    <li>SQL Server</li>
+                    <li>ADO.NET</li>
+                    <li>Winform</li>
+                    <li>HTML5/CSS3</li>
+                </ul>
+            </div>
+            <div class="right">
+                <h3>前端知识解析</h3>
+                <p>
+                    HTML、CSS、JavaScript
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Copyright 2008 by YingKe Investment.
+        </div>
+    </div>
+</body>
+</html>

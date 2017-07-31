@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ajax-GET</title>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        function LoadXMLDoc() {
+            var xmlHttp;
+            if (window.XMLHttpRequest) {
+                xmlHttp = new XMLHttpRequest();
+            } else {
+                xmlHttp = new ActiveXObject("Mircosoft.XMLHTTP");
+            }
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    $("#myDiv").html(xmlHttp.responseText);
+                }
+            }
+
+            xmlHttp.open("GET", "GET.aspx?name=john&age=20", true);
+            xmlHttp.send();
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="LoadXMLDoc();">GET请求数据</button>
+    <div id="myDiv"></div>
+</body>
+</html>

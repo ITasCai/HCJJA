@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title> DOM 事件</title>
+    <!--
+        HTML DOM 使 JavaScript 有能力对 HTML 事件做出反应。
+        我们可以在事件发生时执行 JavaScript，比如当用户在 HTML 元素上点击时。
+        如需在用户点击某个元素时执行代码，请向一个 HTML 事件属性添加 JavaScript 代码：
+        HTML 事件的例子：
+        当用户点击鼠标时
+        当网页已加载时
+        当图像已加载时
+        当鼠标移动到元素上时
+        当输入字段被改变时
+        当提交 HTML 表单时
+        当用户触发按键时
+         -->
+    <script>
+        //当用户在 <h1> 元素上点击时，会改变其内容
+        function ChangeText(obj) {
+            obj.innerHTML = "慧与-济宁产业基地";
+        }
+
+        function DisplayText() {
+            document.getElementById("demo").innerHTML = "<em>慧与-济宁产业基地<em/>";
+            //document.getElementById("demo").style.color = "red";
+            document.getElementById("demo").style = "font-size:20px;color:red;font-family:宋体";
+        }
+
+        //使用 JavaScript 来向 HTML 元素分配事件
+        //window.onload = function () {
+        //    alert("欢迎您!");
+        //}
+
+        window.onload = function () {
+            document.getElementById("btnCheck").onclick = function () {
+                var element = document.getElementsByName("name")[0].value;
+                if (isNaN(element)) {
+                    alert("不是数字");
+                } else {
+                    alert("是数字");
+                }
+            };
+        }
+
+        //onchange 事件
+        function CheckName() {
+            var name = document.getElementById("txtName").value;
+            if (name.length < 6) {
+                alert("用户名至少是6位");
+            }
+        }
+
+        //onmouseover 和 onmouseout 事件
+        //onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。
+        function MouseOver(obj) {
+            obj.innerHTML = "C#程序设计";
+        }
+        function MouseOut(obj) {
+            obj.innerHTML = "Java开发基础";
+        }
+
+        //开灯
+        function LightON() {
+            document.getElementById("myimage").src = "../image/bulbon.gif";
+        }
+        //关灯
+        function LightOFF() {
+            document.getElementById("myimage").src = "../image/bulboff.gif";
+        }
+    </script>
+    <style>
+        #divContent {
+        width:200px;
+        height:100px;
+        background-color:red;
+        text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <h1 onclick="ChangeText(this);">点击改变文本</h1>
+    <p id="demo"></p>
+    <button onclick="DisplayText();">点击改变文本</button><br />
+    <label>请输入数字:</label>
+    <input type="text" name="name" value="" />
+    <input type="button" id="btnCheck" value="检查是否为数字" /><br />
+    <p>使用onchange验证用户名至少为6位</p>
+    <input type="text" name="name" id="txtName" value="" onchange="CheckName();"/>
+    <br />
+    <div id="divContent" onmouseover="MouseOver(this);" onmouseout="MouseOut(this);">
+    </div>
+    <p id="p1" onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'"> 慧与济宁产业基地</p>
+
+    <p>开灯和关灯</p>
+    <img src="../image/bulboff.gif" id="myimage" alt="灯" onmouseup="LightOFF();" onmousedown="LightON();" />
+    <p>点击不释放鼠标灯将一直亮着!</p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        window.alert("Hello World!");//window可以省略alert();
+        document.write("Hello World!");
+
+        function ShowInfo() {
+            //使用id属性来查找HTML元素，用于修改元素的HTML内容
+            document.getElementById("testP").innerHTML = "Hello World! - innerHTML";
+        }
+       
+    </script>
+</head>
+<body>
+    <button id="btnShow" onclick="ShowInfo();">显示</button>
+    <p id="testP"></p>
+</body>
+</html>

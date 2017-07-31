@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JQuery-Ajax</title>
+    <!--
+        定义和用法
+        ajax() 方法通过 HTTP 请求加载远程数据。
+        该方法是 jQuery 底层 AJAX 实现。简单易用的高层实现见 $.get, $.post 等。$.ajax()
+        返回其创建的 XMLHttpRequest 对象。大多数情况下你无需直接操作该函数，
+        除非你需要操作不常用的选项，以获得更多的灵活性。
+        最简单的情况下，$.ajax() 可以不带任何参数直接使用。
+
+        语法:
+        jQuery.ajax([settings])
+        参数:settings
+        可选。用于配置 Ajax 请求的键值对集合。
+
+        参数列表:
+        options 类型：Object 可选。AJAX 请求设置。所有选项都是可选的。
+
+        async:Boolean 异步请求
+        默认是true：异步，false：同步
+        同步：提交请求->等待服务器处理->处理完毕返回 这个期间客户端浏览器不能干任何事
+        异步: 请求通过事件触发->服务器处理（这是浏览器仍然可以作其他事情）->处理完毕
+
+        beforeSend(XHR) 发送请求前可修改 XMLHttpRequest 对象的函数
+
+        contentType 类型：String
+        默认值: "application/x-www-form-urlencoded"。发送信息至服务器时内容编码类型。
+        ajax的contentType是设置的http的请求头，这个头的目的是告诉服务器端，
+        我的请求参数是什么格式的数据，你要按照对应的格式去处理
+         multipart/form-data 使用表单上传文件
+        application/json  用来告诉服务端消息主体是序列化后的 JSON 字符串
+        text/xml
+        不使用contentType: “application/json”则data可以是对象
+        使用contentType: “application/json”则data只能是json字符串
+
+        data: 类型：String 发送到服务器的数据。将自动转换为请求字符串格式。
+        必须为 Key/Value 格式。如果为数组，jQuery 将自动为不同值对应同一个名称。如 {foo:["bar1", "bar2"]} 转换为 '&foo=bar1&foo=bar2'。
+
+        dataType  类型：String
+         xml": 返回 XML 文档，可用 jQuery 处理。
+        "html": 返回纯文本 HTML 信息
+        "script": 返回纯文本 JavaScript 代码。
+        "json": 返回 JSON 数据 。
+        "text": 返回纯文本字符串
+
+        success 请求成功后的回调函数。
+        参数：由服务器返回，并根据 dataType 参数进行处理后的数据；描述状态的字符串。
+
+        error:默认值: 自动判断 (xml 或 html)。请求失败时调用此函数。
+        有以下三个参数：XMLHttpRequest 对象、错误信息、（可选）捕获的异常对象。
+
+        timeout 类型：Number 设置请求超时时间（毫秒）。此设置将覆盖全局设置。
+
+        type 类型：String  默认值: "GET")。请求方式 ("POST" 或 "GET")
+
+        url 类型：String 默认值: 当前页地址。发送请求的地址。
+
+        回调函数
+        如果要处理 $.ajax() 得到的数据，则需要使用回调函数：beforeSend、error、dataFilter、success、complete。
+         -->
+
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $.ajax({
+                    url: "Ajax.aspx",//发送请求的地址
+                    type: "post",//请求方式
+                    async: true,//异步请求
+                    contentType: "application/x-www-form-urlencoded",//发送的内容编码类型
+                    data: { action: "getTime" },//需要提交的数据
+                    //data: "action=getTime&&type=1",
+                    dataType: "text",//服务器返回数据的类型
+                    success: function (data) {//提交成功执行的方法
+                        $("#myDiv").html(data);
+                    },
+                    error: function () {//请求失败执行的方法
+                        alert("查询失败");
+                    }
+
+                });
+            });
+
+            $("#btn2").click(function () {
+                $.ajax({
+                    url: "Ajax.aspx/GetTime",
+                    type: "post",
+                    anync: true,
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (data,status,xhr) {
+                        alert(data.d);
+                    }
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <button id="btn1">Ajax请求</button>
+    <button id="btn2">Ajax请求调用后台方法</button>
+    <div id="myDiv"></div>
+</body>
+</html>

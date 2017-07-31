@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>回调函数</title>
+    <!--
+        在动画结束后可以使用回调函数改变元素的样式、内容等来达到想要的显示效果。
+
+        -->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            //通过在最后一个animate方法加添加回调函数，在动画结束后回调函数会改变元素的边框宽度和颜色。
+            $("#btnCall").click(function () {
+                $(".panel").animate({ "left": "300px", "top": "200px" }, 2000, function () {
+                    //$(this).css("border","5px solid red");
+                    alert($(this).html());
+                });
+            });
+
+            //开始动画
+            $("#btnStart").click(function () {
+                $(".panel").animate({ "left": "200px" }, 2000, function () {
+                    $(this).css("color", "red").css("font-size", "18px");
+                })
+            });
+            //停止动画
+            $("#btnStop").click(function () {
+                $(".panel").stop();
+            });
+        });
+    </script>
+    <style>
+        .panel {
+            position: relative; /*位置样式必须为relative或者absolute.*/
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+            background: #96E555;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">显示文字</div>
+    <button id="btnCall">回调函数</button>
+    <button id="btnStart">开始动画</button>
+    <button id="btnStop">停止动画</button>
+</body>
+</html>

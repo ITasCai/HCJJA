@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ajax-POST</title>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        function testGet() {
+            $.ajax({
+                type: "post",
+                url: "Handler1.ashx",
+                async: true,
+                data: { StuId: 1 },
+                success: function (result) {
+                    $("#content").html(result);
+                    var obj = eval("(" + result + ")");
+                    alert(obj.StuName);
+                    
+                },
+                error: function () {
+                    alert("error!");
+                }
+               
+            });
+        }
+    </script>
+    <style>
+        #container {
+            margin: 100px;
+            height: 300px;
+            width: 500px;
+            background-color: #eee;
+            border: solid 1px #0e0;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1">
+        <div id="container">
+            <input type="button" value="Test Ajax" onclick="testGet()" />
+            <br />
+            <div id="content"></div>
+        </div>
+    </form>
+</body>
+</html>

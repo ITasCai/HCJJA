@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ajax调用WebService</title>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            /*
+           1、WebService请求类型都为Post，WebService的Url为“[WebServiceUrl]/[WebMethod]”
+           2、contentType声明为Json
+           3、data要用Json的字符串格式传入
+           4、设置了dataType为json后，result就直接为返回的Json对象。
+
+       */
+            //无参数方法
+            $("#btn1").click(function () {
+                $.ajax("WebService1.asmx/HelloWorld", {
+                    type: "post",//type必须是post
+                    async: true,
+                    contentType: "application/json",//contentType必须是application/json
+                    data: "{}",//data要用Json的字符串格式传入
+                    dataType: "json",//dataType必须为json
+                    success: function (data, status) {
+                        if (status == "success") {
+                            $("#content").html(data.d);
+                        }
+                    }
+                })
+            });
+            //有参数的方法
+            $("#btn2").click(function () {
+                $.ajax({
+                    url: "WebService1.asmx/Hello",
+                    type: "post",
+                    async: true,
+                    contentType: "application/json",
+                    data: '{name:"zhangsan"}',
+                    dataType: "json",
+                    success: function (data) {
+                        $("#content").html(data.d);
+                    },
+                    error: function () {
+
+                        alert("查询失败");
+                    }
+                });
+            });
+            //返回对象
+            $("#btn3").click(function () {
+                $.ajax({
+                    type: "post",
+                    contentType: "application/json",
+                    url: "WebService1.asmx/GetStudent",
+                    data: '{StuId:"1"}',
+                    dataType: "json",
+                    success: function (result) {
+                        $("#content").empty();
+                        var html = "<ul>";
+                        html += "<li>编号:" + result.d["StuId"] + "</li>";
+                        html += "<li>姓名:" + result.d["StuName"] + "</li>";
+                        html += "<li>年龄:" + result.d["StuAge"] + "</li>";
+                        html += "</div>";
+                        $("#content").append($(html));
+
+                    },
+                    error: function () {
+                        alert("查询失败");
+                    }
+                });
+            });
+
+            //返回集合
+            $("#btn4").click(function () {
+                $.ajax({
+                    type: "post",
+                    contentType: "application/json",
+                    url: "WebService1.asmx/GetStuList",
+                    data: "{}",
+                    dataType: "json",
+                    success: function (result) {
+                        $("#content").empty();
+                        var $table = $("<table border='1'></table>");
+                        $.each(result.d, function (index, student) {
+                            alert(student.StuId + ":" + index);
+                            var $tr = $("<tr></tr>");
+                            var td1 = "<td>" + student.StuId + "</td>";
+                            var td2 = "<td>" + student.StuName + "</td>";
+                            var td3 = "<td>" + student.StuAge + "</td>";
+                            $tr.append($(td1)).append($(td2)).append($(td3));
+                            $table.append($tr);
+                        });
+                        $("#content").append($table);
+                    },
+                    error: function () {
+                        alert("查询失败");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>Ajax调用WebService方法</h3>
+    <button id="btn1">无参数的方法</button>
+    <button id="btn2">有参数的方法</button>
+    <button id="btn3">返回对象</button>
+    <button id="btn4">返回集合</button>
+    <div id="content">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>相对定位relative</title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            margin: 0px auto;
+            width: 500px;
+            border: 1px solid black;
+        }
+
+        .pos_left {
+            background-color: red;
+            position: relative;
+            left: -20px;
+        }
+
+        .pos_left1 {
+            background-color: blue;
+            position: relative;
+            left: 20px;
+        }
+          .pos_right {
+            background-color: blue;
+            position: relative;
+            right: -20px;
+            top:-30px;
+        }
+            .pos_right1 {
+            background-color: red;
+            position: relative;
+            right: 20px;
+            top:30px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>原始位置</h2>
+        <!--<h2 class="pos_left">向左移动</h2>
+        <h2 class="pos_left1">向右移动</h2>-->
+        <h2 class="pos_right">向右移动</h2>
+        <h2 class="pos_right1">向左移动</h2>
+        <p>相对定位会按照元素的原始位置对该元素进行移动。</p>
+        <p>样式 "left:-20px" 从元素的原始左侧位置减去 20 像素。</p>
+        <p>样式 "left:20px" 向元素的原始左侧位置增加 20 像素。</p>
+        <p>样式 "right:-20px" 从元素的原始右侧位置减去 20 像素。</p>
+    </div>
+</body>
+</html>

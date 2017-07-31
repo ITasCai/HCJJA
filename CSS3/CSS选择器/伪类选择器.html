@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>伪类选择器</title>
+    <!--动态伪类选择器：根据条件的改变匹配元素，是相对于文档的固定状态来说的。
+        :link选择器 选择未访问链接元素
+        :visited选择器 选择已访问的链接元素
+        :hover选择器 鼠标悬停在其上的元素
+        :active选择器 被用户激活的元素，通常意味着用户即将点击该元素-->
+    <style>
+        nav {
+            width: 500px;
+        }
+
+            nav ul {
+                list-style-type: none;
+            }
+                nav ul li {
+                float:left;
+                 margin:10px;
+                }
+
+                nav ul li a:link { /*未访问的超链接样式*/
+                    color: red;
+                    font-size: 15px;
+                    text-decoration: none;
+                }
+                nav ul li a:visited { /*鼠标点击后的超链接样式*/
+                    color:blueviolet;
+                    font-size: 15px;
+                }
+                nav ul li a:hover {/*鼠标悬浮超链接的样式*/
+                    color:blue;
+                    font-size:18px;
+                    text-decoration:underline;
+                }
+                nav ul li a:active {/*鼠标点击超链接样式*/
+                    color:black;
+                    font-size:15px;
+                }
+    </style>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">新闻资讯</a></li>
+            <li><a href="#">娱乐八卦</a></li>
+            <li><a href="#">体育竞技</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

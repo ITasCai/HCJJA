@@ -1,0 +1,19 @@
+﻿{
+  "stuName": "张三",
+  "stuAge": 18,
+  "stuSex": "男",
+  "stuAddress": "山东济宁",
+
+  "employee": [
+    {
+      "empName": "john",
+      "empAge": 18,
+      "tech": [ "C#", "java", "html5" ]
+    },
+    {
+      "empName": "tim",
+      "empAge": 20,
+      "tech": [ "C#", "ASP.NET" ]
+    }
+  ]
+}

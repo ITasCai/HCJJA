@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>HTML-跨行和跨列</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <!--colspan:跨列(合并列)
+        rowspan:跨列(合并行)-->
+    <table border="1" width="300" align="center">
+        <tr>
+            <!--<th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>-->
+            <th colspan="3">考试成绩</th>
+        </tr>
+        <tr>
+            <td rowspan="2">张三</td>
+            <td>语文</td>
+            <td>98</td>
+        </tr>
+        <tr>
+            <!--<td>张三</td>-->
+            <td>数学</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td rowspan="2">李四</td>
+            <td>语文</td>
+            <td>97</td>
+        </tr>
+        <tr>
+            <!--<td>李四</td>-->
+            <td>数学</td>
+            <td>99</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <caption>学生课程表</caption>
+        <tr>
+            <th>时间</th>
+            <th>星期一</th>
+            <th>星期二</th>
+            <th>星期三</th>
+            <th>星期四</th>
+            <th>星期五</th>
+        </tr>
+        <tr>
+            <td rowspan="2">上午</td>
+            <td>语文</td>
+            <td>数学</td>
+            <td>自然</td>
+            <td>社会</td>
+            <td>体育</td>
+        </tr>
+        <tr>
+            <!--<td>上午</td>-->
+            <td>数学</td>
+            <td>语文</td>
+            <td>社会</td>
+            <td>自然</td>
+            <td>体育</td>
+        </tr>
+        <tr>
+            <td rowspan="2">下午</td>
+            <td>音乐</td>
+            <td>美术</td>
+            <td>书法</td>
+            <td>实践</td>
+            <td>自习</td>
+        </tr>
+        <tr>
+            <!--<td>下午</td>-->
+            <td>美术</td>
+            <td>书法</td>
+            <td>自习</td>
+            <td>书法</td>
+            <td>自习</td>
+        </tr>
+        <tr>
+            <td>晚上</td>
+            <td colspan="5" align="center">自习</td>
+        </tr>
+
+    </table>
+
+</body>
+</html>

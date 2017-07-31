@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JavaScript数据类型</title>
+    <script>
+        var x1;//x为undefined,表示变量不含有值
+        var x2 = 6;//x为数字
+        var x3 = "hello";//x为字符串
+        var str = "Nice to meet you!";
+        var num1 = 1;//数字类型
+        var num2 = 3.14;//小数点类型
+        var flag1 = true;//boolean类型
+        var flag2 = false;
+        var person = null;//可以通过将变量的值设置为null来清空变量。
+
+        //对象是引用类型，如果变量x表示一个对象，当执行var y = x;语句后，
+        //实际上y和x指向的是同一个对象。所以，当你通过y改变对象的值，这种变化也会反映到x上。
+        //Object类型用于创建自定义对象(实例)，创建方法如下
+        var person1 = new Object();//用new操作符后面跟Object的构造函数
+        person1.name = "张三";
+        person1.age = 18;
+        person1.sex = true;
+        document.write(x1 + "<br/>");
+        document.write(x2 + "<br/>");
+        document.write(x3 + "<br/>");
+        document.write(str + "<br/>");
+        document.write(num1 + "<br/>");
+        document.write(num2 + "<br/>");
+        document.write(flag1 + "<br/>");
+        document.write(flag2 + "<br/>");
+        document.write(person + "<br/>");
+        document.write(person1 + "<br/>");
+
+        //类型转换
+
+    </script>
+</head>
+<body>
+    <!--
+        在JavaScript中有六种基本的数据类型。
+        number、string、boolean、null、undefined和object类型。
+        1.number:数字类型 表示整数或实数
+        2.boolean:True或False
+        3.string:字符串类型
+        4.null：空值类型
+        5.undefined:未定义
+        6.object：自定义对象
+     -->
+</body>
+</html>

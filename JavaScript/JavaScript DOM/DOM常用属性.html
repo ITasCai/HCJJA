@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DOM常用属性</title>
+    <!--
+        1.nodeName 属性 :节点名称
+        nodeName 是只读的
+        元素节点的 nodeName 与标签名相同
+        属性节点的 nodeName 与属性名相同
+        文本节点的 nodeName 始终是 #text
+        文档节点的 nodeName 始终是 #document
+
+        2.nodeValue 属性：节点的值。
+        元素节点的 nodeValue 是 undefined 或 null
+        文本节点的 nodeValue 是文本本身
+        属性节点的 nodeValue 是属性值
+
+        3.nodeType属性，可以使用nodeType属性来获取节点类型。
+        nodeType属性共有12种取值，其中仅有三种较常用：
+        元素节点的nodeType属性值是1；
+        属性节点的nodeType属性值是2；
+        文本节点的nodeType属性值是3。
+
+        4.childNodes属性
+        childNodes属性可以用来获取任何一个元素的所有子元素，是一个包含这个元素全部子元素的数组。
+
+        5.firstChild、lastChild属性
+          firstChild 获得第一个子节点
+          lastChild  获得最后一个节点
+         -->
+    <script>
+        //获取元素的节点名称和节点值和节点类型
+        window.onload = function () {
+
+            //var str = document.getElementById("p1");
+            //document.getElementById("div_content").innerHTML = "节点名称:"  + str.firstChild.nodeName + "<br/>" +
+            //                                                    "节点值:"   + str.firstChild.nodeValue + "<br/>" +
+            //                                                    "节点类型:" + str.firstChild.nodeType;
+
+            var element = document.getElementById("container");
+            alert(element.childNodes.length);
+
+            alert(element.childNodes[4].nodeValue);//取得第一个节点的内容
+            alert(element.lastChild);//取得最后一个节点的内容
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1>个人网站</h1>
+        <p id="p1">Hello World!</p>
+        <div id="div_content">个人简介</div>
+        <div id="hobby">兴趣爱好:
+            <!--<ul id="hobby_list">
+                <li>上网</li>
+                <li>学习</li>
+                <li>睡觉</li>
+                <li>音乐</li>
+            </ul>-->
+        </div>
+        <p id="full">
+            常访问网址：
+           <!--<ul>
+               <li><a href="http://www.baidu.com">百度</a></li>
+               <li><a href="http://www.sohu.com">搜狐</a></li>
+               <li><a href="http://www.sina.com">新浪</a></li>
+           </ul>-->
+        </p>
+        <div id="show">
+
+        </div>
+    </div>
+</body>
+</html>

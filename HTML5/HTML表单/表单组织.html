@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        #login {
+            margin: 0px auto;
+            width: 300px;
+        }
+
+        p {
+            padding-left: 30px;
+        }
+
+        .register {
+            margin: 0px auto;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <form action="http://localhost:44418/index.html" method="get" enctype="application/x-www-form-urlencoded">
+        <div id="login">
+            <fieldset>
+                <legend>用户登录</legend>
+                <p>
+                    <label for="userName">账号:</label>
+                    <input type="text" name="userName" id="userName" placeholder="请输入用户名"
+                           required="required" oninvalid="setCustomValidity('用户名不能为空')"
+                           oninput="setCustomValidity('')" autofocus size="20" maxlength="15" />
+                </p>
+                <p>
+                    <label for="userPwd">密码:</label>
+                    <input type="password" name="userPwd" id="userPwd" required placeholder="请输入密码"
+                           size="20" maxlength="15" />
+                </p>
+                <p>
+                    <input type="submit" name="login" value="登录" />
+                    <input type="reset" name="reset" value="重置" />
+                </p>
+            </fieldset>
+        </div>
+        <div class="register">
+            <fieldset>
+                <legend>用户注册</legend>
+                <p>
+                    <label for="email">电子邮箱:</label>
+                    <input type="email" name="email" id="email" required placeholder="请输入邮箱" />
+                </p>
+                <p>
+                    <label for="userPwd">用户密码:</label>
+                    <input type="password" name="userPwd" id="userPwd" required placeholder="请输入密码"
+                           size="20" maxlength="15" />
+                </p>
+                <p>
+                    <label for="userPwd">确认密码:</label>
+                    <input type="password" name="userPwd" id="userPwd" required placeholder="请输入密码"
+                           size="20" maxlength="15" />
+                </p>
+                <p>
+                    <fieldset  style="width:300px;height:50px;">
+                        <legend>性别:</legend>
+                        <input type="radio" name="gender" id="male" value="male" />
+                        <label for="male">男</label>
+                        <input type="radio" name="gender" id="female" value="female" />
+                        <label for="female">女</label>
+                    </fieldset>
+                    <!--<label>性别：</label>-->
+                </p>
+                <p>
+                    <input type="submit" name="submit" id="submit" value="提交" />
+                    <input type="reset" name="reset" id="reset" value="重置" />
+                </p>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>

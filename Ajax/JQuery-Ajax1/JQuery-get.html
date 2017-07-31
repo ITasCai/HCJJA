@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JQuery-GET()</title>
+    <!--
+        jQuery get() 和 post() 方法用于通过 HTTP GET 或 POST 请求从服务器请求数据。
+        两种在客户端和服务器端进行请求-响应的常用方法是：GET 和 POST。
+        GET - 从指定的资源请求数据
+        POST - 向指定的资源提交要处理的数据
+        GET 基本上用于从服务器获得（取回）数据。注释：GET 方法可能返回缓存数据。
+        POST 也可用于从服务器获取数据。不过，POST 方法不会缓存数据，并且常用于连同请求一起发送数据。
+
+        jQuery $.get() 方法
+        $.get() 方法通过 HTTP GET 请求从服务器上请求数据。
+
+        语法:
+
+        $.get(url, [data], [callback], [dataType])，返回值:XMLHttpRequest
+        必需的 URL 参数规定您希望请求的 URL。
+        可选的 callback 参数是请求成功后所执行的函数名。
+        function(data,status,xhr) 可选。规定当请求成功时运行的函数。
+        data - 包含来自请求的结果数据 status - 包含请求的状态 xhr - 包含 XMLHttpRequest 对象
+        dataType 可选。规定预期的服务器响应的数据类型。
+        默认地，jQuery 会智能判断。类型：xml、html、text、script、json
+
+
+         -->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //简单请求
+            $("#btn1").click(function () {
+                $.get("GET.aspx", function (data, status) {
+                    //alert("数据:" + data + "\n" + "状态:" + status);
+                    $("#content").html(data);
+                }, "text");
+            });
+
+            //使用GET请求方法
+            $("#btn2").click(function () {
+                $.get("GET.aspx?action=getTime", function (data, status) {
+                    $("#content").html(data);
+                    alert(status);
+                });
+            });
+
+            //使用GET请求方法(使用data参数)
+            var param = {
+                action: "getTime"
+            };
+            $("#btn3").click(function () {
+                $.get("GET.aspx", { action: "getTime" }, function (data) {
+                    $("#content").html(data);
+                });
+            });
+
+            //使用GET请求方式，返回jason数据
+            $("#btn4").click(function () {
+                $.get("person.json", function (data) {
+                    //访问简单json集合
+                    //$.each(data, function (key, value) {
+                    //    alert(key + ":" + value);
+                    //});
+                    //访问jason数组
+                    //$("#content").empty();
+                    //var table = $("<table border='1' style='width:300px; border:1px solid black'></table>");
+                    //for (var i = 0; i < data.employee.length ; i++) {
+                    //    var tr = $("<tr></tr>");
+                    //    tr.append("<td>" + data.employee[i]["empName"] + "</td>");
+                    //    tr.append("<td>" + data.employee[i].empAge + "</td>");
+                    //    var tech = data.employee[i]["tech"].join(",");
+                    //    tr.append("<td>" + tech + "</td>");
+                    //    table.append(tr);
+                    //}
+                    //$("#content").append(table);
+
+                    $("#content").empty();
+                    $.each(data.employee, function (index, emp) {
+                        //解析json
+                        var html = "<div>";
+                        html += "<h3>姓名:" + emp["empName"] + "</h3>";
+                        html += "<p>年龄:" + emp["empAge"] + "</p>";
+                        var technology = emp.tech;
+                        html += "技术:";
+                        $.each(technology, function (i, t) {
+                            html += "<p>" + t + "</p>";
+                        });
+                        html += "</div>"
+                        $("#content").append($(html));
+                    });
+                })
+            });
+
+            //使用GET请求方式，接受json字符串类型
+            $("#btn5").click(function () {
+                $.get("GET.aspx", { action: "json" }, function (data) {
+                    var student = eval("(" + data + ")");
+                    $.each(student, function (index, stu) {
+                        alert("学号:" + stu["StuId"] + "\n" +
+                              "姓名:" + stu.StuName);
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn1">GET请求</button>
+    <button id="btn2">GET请求方法</button>
+    <button id="btn3">使用Data</button>
+    <button id="btn4">返回Json数据</button>
+    <button id="btn5">返回Json字符串类型</button>
+    <div id="content">
+
+    </div>
+</body>
+</html>

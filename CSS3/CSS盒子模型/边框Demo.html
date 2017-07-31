@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>边框Demo</title>
+    <meta charset="utf-8" />
+    <style>
+        /*.input_user,.input_pwd {
+            width:150px;
+            border:1px solid  gray;
+        }*/
+         .input_user,.input_pwd {
+            width:150px;
+            border:2px solid #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+        <p>
+            <label for="username">账号:</label>
+            <input type="text" name="username" id="username" class="input_user" />
+        </p>
+        <p>
+            <label for="userpwd">密码:</label>
+            <input type="password" name="userpwd" id="userpwd" class="input_pwd" />
+        </p>
+        <p>
+            <input type="submit" name="login" id="btnLogin" value="登录" />&nbsp;&nbsp;
+            <input type="reset" name="reset" id="btnReset" value="重置" />
+        </p>
+    </form>
+</body>
+</html>

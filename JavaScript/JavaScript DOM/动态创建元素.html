@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>动态创建元素</title>
+    <style>
+        #container {
+        margin:0px auto;
+        width:400px;
+        }
+    </style>
+    <script>
+        function CreateTN() {
+            var container = document.getElementById("container");
+            var h1 = document.createElement("h1");
+            h1.setAttribute("style", "color:red");
+            container.appendChild(h1);
+            var txt = document.createTextNode("用户管理");
+            h1.appendChild(txt);
+            var div1 = document.createElement("div");
+            div1.id = "div1";
+            div1.title = "userName";
+            div1.setAttribute("style", "height:40px;");
+            container.appendChild(div1);
+            var txtUserName = document.createTextNode("账号:");
+            div1.appendChild(txtUserName);
+
+            var inputUserName = document.createElement("input");
+            inputUserName.setAttribute("id", "userName");
+            inputUserName.setAttribute("type", "text");
+            div1.appendChild(inputUserName);
+            var div2 = document.createElement("div");
+            div2.id = "div2";
+            div2.title = "userName";
+            div2.setAttribute("style", "height:40px;");
+            container.appendChild(div2);
+            var txtPwd = document.createTextNode("密码:");
+            div2.appendChild(txtPwd);
+            var inputPwd = document.createElement("input");
+            inputPwd.setAttribute("id", "password");
+            inputPwd.setAttribute("type", "password");
+            div2.appendChild(inputPwd);
+
+            var div3 = document.createElement("div");
+            div3.id = "div3";
+            div3.title = "control";
+            div3.setAttribute("style", "height:40px;");
+            container.appendChild(div3);
+            var login = document.createElement("input");
+            login.setAttribute("type", "submit");
+            login.setAttribute("id", "btnSubmit");
+            login.setAttribute("value", "登录");
+            login.setAttribute("onclick", "javascript:alert('登录成功!')");
+            div3.appendChild(login);
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <input type="button" name="name" value="创建文本节点" onclick="CreateTN();" />
+</body>
+</html>

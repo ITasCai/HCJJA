@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>重叠的元素</title>
+    <!--
+        元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素
+        z-index属性指定了一个元素的堆叠顺序（哪个元素应该放在前面，或后面）
+        一个元素可以有正数或负数的堆叠顺序
+    -->
+    <style>
+        #container {
+            margin:0px auto;
+            width:900px;
+        }
+        img {
+           position:absolute;
+           left:0px;
+           top:0px;
+           z-index:-1;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>This is a heading</h1>
+        <img  src="../image/background-500x313.jpg"/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>单行文本框</title>
+    <style>
+        .login {
+            width: 500px;
+            margin: 0px auto;
+            text-align: left;
+        }
+
+        .field {
+            width: 450px;
+            height: 30px;
+            padding-left: 10px;
+        }
+
+        label {
+            display: inline-block;
+            width: 60px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#form1").submit(function () {
+                var username = $("#userName").val();
+                var userpwd = $("#userPwd").val();
+                if (username.trim().length == 0) {
+                    $("#userName").css({ "border": "1px solid red" });
+                    $("#errorName").text("用户名不能为空");
+                    return false;
+                }
+                else if (userpwd.trim().length == 0) {
+                    $("#userPwd").css({ "border": "1px solid red" });
+                    return false;
+                }
+                return true;
+            });
+        });
+
+
+        //验证账号
+        function valUserName() {
+            var username = $("#userName").val();
+            var pattern = /^[a-zA-Z]{1}[a-zA-Z0-9]{5,19}$/;
+            if (username.trim().length == 0) {
+                $("#errorName").text("请输入账号");
+                $("#userName").css({ "border": "1px solid red" });
+                return false;
+            }
+            else if (!pattern.test(username)) {
+                $("#errorName").text("账号格式不正确");
+                $("#userName").css({ "border": "1px solid red" });
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+        ////验证密码
+        //function valPassword() {
+        //    var password = $("input[type=password]").val();
+        //    if (password.trim().length < 6 ||password.trim().length >20) {
+        //        $("#errorPwd").text("请输入6-20位的密码");
+        //        $("input[type=password]").css({ "border": "1px solid red" });
+        //        return false;
+        //    }
+        //    return true;
+        //}
+
+        //function checkAll() {
+        //    if (valUserName() && valPassword()) {
+        //        $("#form1").submit();
+        //    }
+        //}
+
+        ////清除提示信息
+        //function clearError(element) {
+        //    $(element).text("");
+        //    $(element).prev().css({ "border": "1px solid blue" });
+        //}
+
+    </script>
+
+</head>
+<body>
+    <div class="login">
+        <form id="form1" method="post" action="index.aspx" enctype="application/x-www-form-urlencoded">
+            <div class="field">
+                <label for="userName">账号:</label>
+                <input type="text" name="username" id="userName" placeholder="请输入账号" value=""
+                       onfocus="clearError($('#errorName'));" onblur="return valUserName();" />
+                <span class="error" id="errorName"></span>
+            </div>
+            <div class="field">
+                <label for="userPwd">密码:</label>
+                <input type="password" name="password" id="userPwd" placeholder="请输入密码" value=""
+                       onfocus="clearError($('#errorPwd'));" onblur="return valPassword();" />
+                <span class="error" id="errorPwd"></span>
+            </div>
+            <div class="field">
+                <input type="submit" name="submit" id="btnSubmit" value="登录" />
+                <!--<input type="button" name="submit" id="btnSubmit" onclick="checkAll();" value="登录" />-->
+                <input type="reset" name="reset" value="重置" />
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

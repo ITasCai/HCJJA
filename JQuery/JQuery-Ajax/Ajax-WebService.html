@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ajax-POST</title>
+    <!--第一，在对WebService做ajax请求的时候，请求的url的写法是：
+        服务地址/调用的方法名称，这样在请求的url中就确定了要调用的方法了，
+        不必再在WebService代码中去判断ajax请求调用的是哪个方法了。
+        第二，方法可以返回更多的数据类型，比如对象，泛型集合等；在ajax请求返回后，
+        会自动将这些类型转换为json对象。而使用ashx的方式的话，
+        需要先将这些类型转换为json格式的数据才能返回。
+        在使用jquery调用WebService的方法的时候，只能发送post方式的请求；
+        如果要返回json格式的数据的话，需要将contentType设置为application/json；
+        返回的数据是以字母d为键值的json对象。
+
+        success(response,status,xhr)
+        response - 包含来自请求的结果数据
+        status - 包含请求的状态
+        xhr - 包含 XMLHttpRequest 对象
+
+        dataType:规定预计的服务器响应的数据类型。
+        可能的类型："xml、html、text、script、json"
+
+        -->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            /*
+             1、WebService请求类型都为Post，WebService的Url为“[WebServiceUrl]/[WebMethod]”
+             2、contentType声明为Json
+             3、data要用Json的字符串格式传入
+             4、设置了dataType为json后，result就直接为返回的Json对象。
+            */
+
+            //无参数
+            $("#btn1").click(function () {
+                $.ajax({
+                    type: "post",
+                    contentType: "application/json",
+                    url: "WebService1.asmx/HelloWorld",
+                    data: "{}",
+                    dataType: "json",
+                    success: function (result, status) {
+                        //result.d,这是因为在返回的json数据格式是以d为键值的json对象
+                        $("#content").html(result.d);
+                    },
+                    error: function (data) {
+                        alert("查询失败");
+                    }
+                });
+            });
+
+            //有参数
+            $("#btn2").click(function () {
+                $.ajax({
+                    type: "post",
+                    contentType: "application/json",
+                    url: "WebService1.asmx/Hello",
+                    data: '{ name: "john" }',
+                    dataType: "json",
+                    success: function (result) {
+                        $("#content").html(result.d);
+                    },
+                    error: function (result) {
+                        alert("查询失败");
+                    }
+                });
+            });
+
+            //返回对象
+            $("#btn3").click(function () {
+                $.ajax({
+                    type: "post",
+                    contentType: "application/json",
+                    url: "WebService1.asmx/GetStudent",
+                    data: '{StuId:"1"}',
+                    dataType: "json",
+                    success: function (result) {
+                        $("#content").empty();
+                        var html = "<ul>";
+                        html += "<li>编号:" + result.d["StuId"] + "</li>";
+                        html += "<li>姓名:" + result.d["StuName"] + "</li>";
+                        html += "<li>年龄:" + result.d["StuAge"] + "</li>";
+                        html += "</div>";
+                        $("#content").append($(html));
+
+                    },
+                    error: function () {
+                        alert("查询失败");
+                    }
+                });
+            });
+
+            //返回集合
+            $("#btn4").click(function () {
+                $.ajax({
+                    type: "post",
+                    contentType: "application/json",
+                    url: "WebService1.asmx/GetStuList",
+                    data: "{}",
+                    dataType: "json",
+                    success: function (result) {
+                        $("#content").empty();
+                        var $table = $("<table border='1'></table>");
+                        $.each(result.d, function (index, student) {
+                            alert(student.StuId + ":" + index);
+                            var $tr = $("<tr></tr>");
+                            var td1 = "<td>" + student.StuId + "</td>";
+                            var td2 = "<td>" + student.StuName + "</td>";
+                            var td3 = "<td>" + student.StuAge + "</td>";
+                            $tr.append($(td1)).append($(td2)).append($(td3));
+                            $table.append($tr);
+                        });
+                        $("#content").append($table);
+                        },
+                    error: function () {
+                        alert("查询失败");
+                    }
+                });
+            });
+        });
+
+    </script>
+    <style>
+        #container {
+            margin: 0px auto;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1">
+        <div id="container">
+            <input type="button" value="无参数" id="btn1" />
+            <input type="button" value="有参数" id="btn2" />
+            <input type="button" value="返回对象" id="btn3" />
+            <input type="button" value="返回集合" id="btn4" />
+            <br /><br />
+            <div id="content"></div>
+        </div>
+    </form>
+</body>
+</html>

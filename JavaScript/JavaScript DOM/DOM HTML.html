@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>改变 HTML</title>
+    <!--
+        HTML DOM 允许 JavaScript 改变 HTML 元素的内容。
+        1.getElementByID方法
+        它是document对象特有的函数。该方法返回一个与那个有着给定id属性值的元素节点对应的对象。
+
+        2.getElementsByTagName方法
+        可返回一个对象数组，每个对象分别对应着文档里有着给定标签的一个元素。
+        该方法也只有一个参数，该参数是标签的名字。
+
+        3.getElementsByClassName方法
+        HTML5 DOM中新增的一个方法。这个方法让我们能通过class属性中的类名来访问元素。
+
+        4.getElementsByName方法
+        getElementsByName() 方法可返回带有指定名称的对象的集合
+        该方法与 getElementById() 方法相似，但是它查询元素的 name 属性，而不是 id 属性。
+        另外，因为一个文档中的 name 属性可能不唯一（如 HTML 表单中的单选按钮通常具有相同的 name 属性），
+        所有 getElementsByName() 方法返回的是元素的数组，而不是一个元素。
+        -->
+    <script>
+        //改变HTML输出流
+        document.write(Date());
+
+       //改变HTML内容
+        function ChangeHtml() {
+            //getElementById
+            document.getElementById("header").innerHTML="标题二";
+            document.getElementById("p1").innerHTML = "你好 世界!";
+
+            //getElementsByName
+            var element = document.getElementsByName("Name");
+            //alert(element.length);
+            //for (var i = 0; i < element.length; i++) {
+            //    element[i].value = i;
+            //}
+            element[0].value = "张三";
+            element[1].value = "李四";
+            element[2].value = "王五";
+            element[3].value = "赵六";
+            element[4].value = "田七";
+
+            //getElementsByTagName
+            var elementTag = document.getElementsByTagName("a");
+            //alert(elementTag.length);
+            for (var i = 0; i < elementTag.length; i++) {
+                elementTag[i].innerHTML = "<strong>百度<strong/>";
+                elementTag[i].style.color = "red";
+            }
+
+            //getElementsByClassName
+            var testClass = document.getElementsByClassName("test");
+            //alert(testClass.length);
+            for (var i = 0; i < testClass.length; i++) {
+                testClass[i].innerHTML = "这是一个段落";
+            }
+        }
+    </script>
+    <style>
+      .test{
+            text-align:center;
+            color:green;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="header">标题一</h1>
+        <p id="p1">Hello World!</p>
+        <input type="text" name="Name" id="UserName" value="" /><br />
+        <input type="text" name="Name" value="" /><br />
+        <input type="text" name="Name" value="" /><br />
+        <input type="text" name="Name" value="" /><br />
+        <input type="text" name="Name" value="" /><br />
+        <ul>
+            <li><a href="#">新浪</a></li>
+            <li><a href="#">百度</a></li>
+            <li><a href="#">腾讯</a></li>
+            <li><a href="#">搜狐</a></li>
+            <li><a href="#">网易</a></li>
+        </ul>
+        <p class="test">
+            白日依山尽，黄河入海流。
+        </p>
+        <p class="test">
+            北京欢迎您!
+        </p>
+        <input type="button" name="name" value="改变HTML内容" onclick="ChangeHtml();" />
+    </div>
+</body>
+</html>

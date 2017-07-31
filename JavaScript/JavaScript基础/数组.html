@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>数组</title>
+    <script>
+        //声明一个数组
+        var scores = new Array();
+        scores[0] = 20;
+        scores[1] = 30;
+        scores[2] = 40;
+        scores[3] = 50;
+        scores[4] = 60;
+        document.write("scores:" + scores + "<br/>");
+        //alert(scores.length);//数组的长度
+
+        //可以同时声明数组并且同时指定元素的值
+        var scores1 = new Array(20, 30, 40, 50, 60);
+        document.write("scores1:" + scores1 + "<br/>");
+
+        //也可以使用简略的语法声明数组并赋值
+        var scores2 = [5, 6, 7, 8, 9];
+        document.write("scores2:" + scores2 + "<br/>");
+
+        //声明数组，并且指定数组的长度。
+        var scores3 = new Array(30);
+        //alert(scores3.length);
+
+        //分离字符串
+        var str = "A,B,C";
+        var pars = str.split(",");
+        document.write("pars[0]:" + pars[0] + "<br/>" +
+                       "pars[1]:" + pars[1] + "<br/>" +
+                       "pars[2]:" + pars[2] + "<br/>");
+
+        //合并字符串
+        var fullname = pars.join("-");
+        document.write("fullname:" + fullname + "<br/>");
+
+        //字符串数组的排序
+        var arr1 = ["b", "d", "a", "r", "c"];
+        arr1.sort();//按字母顺序进行排序
+        document.write("按字母顺序排序:" + arr1 + "<br/>");
+        arr1.reverse();//倒序排序
+        document.write("倒序排序:" + arr1 + "<br/>");
+
+        //数值数组排序
+        var nums = new Array(4, 2, 1, 7, 5, 9);
+        var ascnums = nums.sort();//升序
+        var descnums = nums.reverse();//降序
+
+        /*数组元素的添加
+          JavaScript提供了数组添加方法:push()*/
+        var arr = [1, 2];
+        arr.push(3);//添加元素
+        var result = arr.push(4);//返回新数组的长度
+        //alert(arr);//返回新数组的内容
+        //alert(result);//返回新数组的长度
+
+        //数组元素的删除
+        var array = [1, 2, 3, 4, 5];
+        //var obj = array.pop();//从数组的尾部移除一个元素(返回值为移除的元素)
+        //alert(obj);
+        document.write(array + "<br/>");
+        var value = array.shift();//从头部移除一个元素(返回移除的元素)
+        document.write(array + "<br/>");
+        array.splice(0, 1);//从索引为0,移除元素的个数为1
+        document.write(array + "<br/>");
+
+        //合并两个数组
+        var person1 = new Array("zhangsan", "lisi", "wangwu");
+        var person2 = new Array("john", "jake", "helen");
+        var person = person1.concat(person2);
+        document.write(person + "<br/>");
+        //循环遍历数组
+        var arrName = new Array(5);
+        arrName[0] = "张三";
+        arrName[1] = "李四";
+        arrName[2] = "王五";
+        arrName[3] = "赵六";
+        arrName[4] = "田七";
+
+        //for 循环
+        for (var i = 0; i < arrName.length; i++) {
+            document.write(arrName[i] + "<br/>");
+        }
+        //for in
+        for (var number in arrName) {
+            document.write(arrName[number] + "<br/>");
+        }
+
+        //对象数组
+        var car1 = {
+            brand: "audi",
+            color: "red",
+            price: 200
+        };
+        var car2 = {
+            brand: "BMW",
+            color: "white",
+            price: 300
+        }
+        var car3 = {
+            brand: "Benz",
+            color: "black",
+            price: 500
+        }
+
+        var car = new Array(car1, car2, car3);
+        for (var i = 0; i < car.length; i++) {
+            document.write("品牌:" + car[i]["brand"] +
+                          " 颜色:" + car[i]["color"] +
+                          " 价格:" + car[i]["price"] + "<br/>");
+        }
+
+        //使用forEach
+        var employee = ["张三", "李四", "王五", "赵六"];
+        employee.forEach(function (value, index) {
+            document.write(value + ":" + index);
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

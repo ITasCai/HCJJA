@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ajax案例一</title>
+    <style>
+        #container {
+            margin: 100px;
+            height: 300px;
+            width: 500px;
+            background-color: #eee;
+            border: solid 1px #0e0;
+        }
+    </style>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        function testGet() {
+            $.ajax({
+                type: "get",
+                url: "NormalPage.aspx",
+                contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+                anysc: true,
+                success: function (data) {
+                    alert(data);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <form id="form1">
+        <div id="container">
+            <input type="button" name="name" value="Ajax测试" onclick="testGet();" />
+        </div>
+    </form>
+</body>
+</html>

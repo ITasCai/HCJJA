@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>清除浮动</title>
+    <!--
+        清除浮动 清除浮动可以理解为打破横向排列
+        清除浮动的关键字是clear，官方定义如下：
+        语法：clear : none | left | right | both
+        取值：
+        none :默认值,允许两边都可以有浮动对象
+        left :不允许左边有浮动对象
+        right:不允许右边有浮动对象
+        both :不允许有浮动对象
+
+        案例分析：
+        1.根据浮动的基础，假设页面中只有两个元素div1、div2，他们都是左浮动
+          此时div1、div2都浮动，根据规则，div2会跟随在div1后边，但我们仍然希望div2能排列在div1下边，
+          就像div1没有浮动，div2左浮动那样。
+          解析：这时候就要用到清除浮动（clear）
+          对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。
+          我们是想让div2移动，但我们却是在div1元素的CSS样式中使用了清除浮动，
+          试图通过清除div1右边的浮动元素(clear:right;)来强迫div2下移，这是不可行的，
+          因为这个清除浮动是在div1中调用的，它只能影响div1，不能影响div2。
+          要想让div2下移，就必须在div2的CSS样式中使用浮动。
+          本例中div2的左边有浮动元素div1，因此只要在div2的CSS样式中使用clear:left;
+          来指定div2元素左边不允许出现浮动元素，这样div2就被迫下移一行。
+        2.div1、div2，它们都是右浮动
+          此时如果要让div2下移到div1下边，要如何做呢？
+          我们希望移动的是div2，就必须在div2的CSS样式中调用浮动，因为浮动只能影响调用它的元素。
+          可以看出div2的右边有一个浮动元素div1，那么我们可以在div2的CSS样式中使用clear:right;
+          来指定div2的右边不允许出现浮动元素，这样div2就被迫下移一行，排到div1下边。
+    -->
+    <style>
+        #div1 {
+            background-color: red;
+            width: 100px;
+            height: 40px;
+            float: left;
+            /*float:right;*/
+        }
+
+        #div2 {
+            background-color: greenyellow;
+            width: 200px;
+            height: 90px;
+            float: left;
+            clear:left;
+            /*float:right;
+            clear:right;*/
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+    </div>
+</body>
+</html>

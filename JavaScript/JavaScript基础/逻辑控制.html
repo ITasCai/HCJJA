@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>逻辑控制</title>
+    <!--逻辑控制语句
+        1.if elset条件语句：用于基于不同的条件来执行不同的动作。
+          if 语句 - 只有当指定条件为 true 时，使用该语句来执行代码
+          if...else 语句 - 当条件为 true 时执行代码，当条件为 false 时执行其他代码
+          if...else if....else 语句 - 使用该语句来选择多个代码块之一来执行
+        2.循环语句：声明一组要反复执行的命令，直到满足某些条件为止。
+          循环通常用于迭代数组的值（因此而得名），或者执行重复的算术任务。
+          (1)for - 循环代码块一定的次数
+          (2)for/in - 循环遍历对象的属性
+          (3)while - 当指定的条件为 true 时循环指定的代码块
+          (4)do/while - 同样当指定的条件为 true 时循环指定的代码块
+          (5)break 语句用于跳出循环。
+          (6)continue 用于跳过循环中的一个迭代。
+        3.switch语句：用于基于不同的条件来执行不同的动作。
+          首先设置表达式 n（通常是一个变量）。随后表达式的值会与结构中的每个 case 的值做比较。
+          如果存在匹配，则与该 case 关联的代码块会被执行。请使用 break 来阻止代码自动地向下一个 case 运行。
+        -->
+    <script>
+        /*if语句和if else 语句*/
+
+        //var i = prompt("请输入考试成绩", "");
+        //if (isNaN(i)) {
+        //    alert("你输入的不是数字");
+        //}
+        //else {
+        //    if (i >= 60) {
+        //        alert("恭喜您!考试合格");
+        //    }
+        //    else {
+        //        alert("很遗憾!考试不合格");
+        //    }
+        //}
+        //使用if else实现根据时间判断问好
+        //var today = new Date();
+        //var hour = today.getHours();
+        //if (hour >= 6 && hour < 12) {
+        //    document.write("早上好!");
+        //} else if (hour >= 12 && hour < 18) {
+        //    document.write("下午好!");
+        //} else if (hour >= 18 && hour < 24) {
+        //    document.write("晚上好!");
+        //} else {
+        //    document.write("夜里好!");
+        //}
+    </script>
+    <script>
+
+        //for 循环
+        var sum = 0;
+        for (var i = 0; i <= 100; i++) {
+            sum = sum + i;
+        }
+        document.write("1+2+3+..100的和:" + sum + "<br/>");
+
+        //使用for循环遍历数组
+        var color = new Array("red", "blue", "yellow", "green");
+        for (var i = 0; i < color.length; i++) {
+            document.write(color[i] + "<br/>");
+        }
+
+        //for in循环:用于循环遍历对象的属性
+        var car = ["BMW", "Audi", "Benz"];
+        for (var index in car) {
+            document.write(car[index] + "<br/>");
+        }
+
+        //While循环(求10以内的奇数之和)
+        var totalOdd = 0;
+        i = 1;
+        while (i < 10) {
+            if (i % 2 != 0) {
+                totalOdd = totalOdd + i;
+            }
+            i++;
+        }
+        document.write("10以内的奇数和为:" + totalOdd + "<br/>");
+
+        //do While(求10以内的偶数和)
+        var totalEven = 0;
+        j = 1;
+        do {
+            if (j % 2 == 0) {
+                totalEven = totalEven + j;
+            }
+            j++;
+        } while (j < 10);
+        document.write("10以内的偶数和为:" + totalEven + "<br/>");
+
+        //break 和continue
+        for (var i = 0; i <10; i++) {
+            if (i == 9) {
+                break;
+            }
+            if (i % 2 == 0) {
+                continue;
+            }
+        }
+    </script>
+    <script>
+        /*switch语句
+        显示今日的周名称。请注意 Sunday=0, Monday=1, Tuesday=2, 等等：*/
+        var myDate = new Date();
+        var weekday = myDate.getDay();
+        var result;
+        switch (weekday) {
+            case 0:
+                result = "星期日";
+                break;
+            case 1:
+                result = "星期一";
+                break;
+            case 2:
+                result = "星期二";
+                break;
+            case 3:
+                result = "星期三";
+                break;
+            case 4:
+                result = "星期四";
+                break;
+            case 5:
+                result = "星期五";
+                break;
+            case 6:
+                result = "星期六";
+                break;
+            default:
+        }
+        document.write("今天是:" + result);
+
+        //练习:如果今天不是周六或周日，则会输出默认的消息：今天是工作日
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

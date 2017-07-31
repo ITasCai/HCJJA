@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB5F9511-F9DC-4A2D-8F24-C8ECFCF3375B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSS3</RootNamespace>
+    <AssemblyName>CSS3</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSS列表样式\列表属性.html" />
+    <Content Include="CSS列表样式\列表样式.html" />
+    <Content Include="CSS定位\下拉菜单.html" />
+    <Content Include="CSS定位\固定定位.html" />
+    <Content Include="CSS定位\定位.html" />
+    <Content Include="CSS定位\相对定位.html" />
+    <Content Include="CSS定位\绝对定位案例.html" />
+    <Content Include="CSS定位\综合案例.html" />
+    <Content Include="CSS定位\重叠的元素.html" />
+    <Content Include="CSS标准文档流\块状显示.html" />
+    <Content Include="CSS标准文档流\行内显示.html" />
+    <Content Include="CSS标准文档流\inline和block.html" />
+    <Content Include="CSS标准文档流\隐藏.html" />
+    <Content Include="CSS定位\相对定位Demo.html" />
+    <Content Include="CSS定位\绝对定位.html" />
+    <Content Include="CSS浮动\创建水平菜单.html" />
+    <Content Include="CSS浮动\浮动.html" />
+    <Content Include="CSS浮动\浮动练习.html" />
+    <Content Include="CSS浮动\清除浮动.html" />
+    <Content Include="CSS浮动\清除浮动2.html" />
+    <Content Include="CSS浮动\溢出处理.html" />
+    <Content Include="CSS浮动\简单布局.html" />
+    <Content Include="CSS盒子模型\内边距.html" />
+    <Content Include="CSS盒子模型\外边距.html" />
+    <Content Include="CSS盒子模型\外边距Demo.html" />
+    <Content Include="CSS盒子模型\概述.html" />
+    <Content Include="CSS盒子模型\盒子模型.html" />
+    <Content Include="CSS盒子模型\盒子模型Demo.html" />
+    <Content Include="CSS盒子模型\边框.html" />
+    <Content Include="CSS盒子模型\边框Demo.html" />
+    <Content Include="CSS网页布局\css\list.css" />
+    <Content Include="CSS网页布局\css\login.css" />
+    <Content Include="CSS网页布局\image\bg.jpg" />
+    <Content Include="CSS网页布局\image\contact.png" />
+    <Content Include="CSS网页布局\image\hot.png" />
+    <Content Include="CSS网页布局\image\focus.jpg" />
+    <Content Include="CSS网页布局\image\focus1.jpg" />
+    <Content Include="CSS网页布局\image\logo.jpg" />
+    <Content Include="CSS网页布局\image\start.gif" />
+    <Content Include="CSS网页布局\image\titlebg.jpg" />
+    <Content Include="CSS网页布局\css\index.css" />
+    <Content Include="CSS网页布局\index.html" />
+    <Content Include="CSS网页布局\list.html" />
+    <Content Include="CSS网页布局\login.html" />
+    <Content Include="CSS表格样式\其他样式.html" />
+    <Content Include="CSS表格样式\表格文字对齐.html" />
+    <Content Include="CSS表格样式\表格边框.html" />
+    <Content Include="CSS链接样式\不同样式链接.html" />
+    <Content Include="CSS链接样式\链接样式.html" />
+    <Content Include="image\arrow-icon.gif" />
+    <Content Include="image\eg_smile.gif" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\style.css" />
+    <Content Include="CSS基础\CSS.html" />
+    <Content Include="CSS文本样式\文本样式.html" />
+    <Content Include="CSS文本样式\练习.html" />
+    <Content Include="CSS背景样式\Demo.html" />
+    <Content Include="CSS背景样式\背景定位.html" />
+    <Content Include="CSS背景样式\背景平铺.html" />
+    <Content Include="CSS背景样式\背景图片.html" />
+    <Content Include="CSS背景样式\背景颜色.html" />
+    <Content Include="CSS样式引入\内部样式.html" />
+    <Content Include="CSS样式引入\外部样式.html" />
+    <Content Include="CSS样式引入\内联样式.html" />
+    <Content Include="CSS选择器\Class选择器.html" />
+    <Content Include="CSS选择器\ID选择器.html" />
+    <Content Include="CSS选择器\伪元素选择器.html" />
+    <Content Include="CSS选择器\伪类选择器.html" />
+    <Content Include="CSS选择器\兄弟选择器.html" />
+    <Content Include="CSS选择器\属性选择器.html" />
+    <Content Include="CSS选择器\并集选择器.html" />
+    <Content Include="CSS选择器\标签选择器.html" />
+    <Content Include="CSS选择器\后代选择器.html" />
+    <Content Include="CSS选择器\子元素选择器.html" />
+    <Content Include="CSS选择器\通用选择器.html" />
+    <Content Include="image\1.jpg" />
+    <Content Include="image\background-1680x1050.jpg" />
+    <Content Include="image\background-500x313.jpg" />
+    <Content Include="image\bg.jpg" />
+    <Content Include="image\body-bg-repeat-x.jpg" />
+    <Content Include="image\body-bg-repeat-y.jpg" />
+    <Content Include="image\hetao.jpg" />
+    <Content Include="image\img_tree.png" />
+    <Content Include="image\m_tangcupaigu.gif" />
+    <Content Include="image\sky.jpg" />
+    <Content Include="image\smiley.gif" />
+    <Content Include="image\sqpurple.gif" />
+    <Content Include="image\start.png" />
+    <Content Include="image\w3css.gif" />
+    <Content Include="Web.config" />
+    <Content Include="CSS字体样式\字体大小.html" />
+    <Content Include="CSS字体样式\字体属性.html" />
+    <Content Include="CSS字体样式\字体类型.html" />
+    <Content Include="CSS字体样式\字体粗细.html" />
+    <Content Include="CSS字体样式\字体风格.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>46472</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:46472/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

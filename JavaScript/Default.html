@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        var employee = new Array(3);
+        employee[0] = "2";
+        employee[1] = "1";
+        employee[2] = "0";
+
+        employee.sort();
+        document.writeln(employee.length + "<br/>");
+        for (var i = 0; i < employee.length; i++) {
+            document.writeln(employee[i] + "<br/>");
+        }
+
+        //var MyArray = new Array(3, 3);
+        //MyArray[0, 0] = "张三";
+        //MyArray[0, 1] = 1;
+        //MyArray[1, 0] = "李四";
+        //MyArray[1, 1] = 2;
+        //MyArray[2, 0] = "王五";
+        //MyArray[2, 1] = 3;
+        //MyArray.forEach(function (v, k) {
+        //    alert(v);
+        //});
+        //document.write("姓名是:" + MyArray[2, 0]);
+        //document.write("编号是:" + MyArray[2, 1]);
+
+        var arr = [1, 2, 3, 4, 5, "张三"];
+        arr.forEach(function (value, index) {
+            alert(index);
+        });
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

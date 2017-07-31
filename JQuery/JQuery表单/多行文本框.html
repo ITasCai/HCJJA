@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>多行文本框</title>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#bigger").click(function () {
+                if ($("textarea").height() < 300) {
+                    $("textarea").height($("textarea").height() + 50);
+                }
+            });
+
+            $("#smaller").click(function () {
+                if ($("textarea").height() > 50) {
+                    $("textarea").height($("textarea").height() - 50);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>多行文本框</h3>
+    <p>
+        <textarea rows="8" cols="30"></textarea>
+    </p>
+    <button id="bigger">放大</button>
+    <button id="smaller">缩小</button>
+</body>
+</html>

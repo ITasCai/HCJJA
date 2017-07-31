@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>浮动</title>
+    <!--浮动：
+        CSS 的 Float（浮动），会使元素向左或向右移动，其周围的元素也会重新排列。
+        Float（浮动），往往是用于图像，但它在布局时一样非常有用。
+        1.元素的水平方向浮动，意味着元素只能左右移动而不能上下移动。
+        2.一个浮动元素会尽量向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。
+        3.浮动元素之后的元素将围绕它。
+        4.浮动元素之前的元素将不会受到影响。
+
+
+        无法是多么复杂的布局，其基本出发点均是：如何在一行显示多个div元素。
+        显然标准流已经无法满足需求，这就要用到浮动，
+        浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上和标准流不是一个层次。
+       
+        案例分析：
+        1.如果对div2设置左浮动，那么它将脱离标准流，但div1、div3、div4仍然在标准流中，
+          所以div3会向上移动，占据div2的位置，重新组成一个流。
+          这里div2用的是左浮动(float:left;)，可以理解为漂浮起来后靠左排列，
+          右浮动(float:right;)当然就是靠右排列。这里的靠左、靠右是说页面的左、右边缘。
+          此时div2靠页面右边排列，不再遮挡div3。div3同样会向上移动，占据div2的位置，重新组成一个流。
+        
+        2.把div2和div3都加上左浮动。
+          由于div2、div3浮动，它们不再属于标准流，因此div4会自动上移，与div1组成一个新标准流，
+          而浮动是漂浮在标准流之上，因此div2又挡住了div4
+          当同时对div2、div3设置浮动之后，div3会跟随在div2之后，因此可以得出一个重要结论：
+          假如某个div元素A是浮动的，如果A元素上一个元素也是浮动的，
+          那么A元素会跟随在上一个元素的后边(如果一行放不下这两个元素，那么A元素会被挤到下一行)；
+          如果A元素上一个元素是标准流中的元素，那么A的相对垂直位置不会改变，
+          也就是说A的顶部总是和上一个元素的底部对齐。
+        3.把div2、div3、div4都设置成左浮动。
+          (1)从div4开始分析，它发现上边的元素div3是浮动的，所以div4会跟随div3之后；
+          (2)div3发现上边的元素div2也是浮动的，所以div3会跟随在div2之后；
+          (3)而div2发现上边的元素div1是标准流中的元素，因此div2的相对垂直位置不变，顶部仍然和div1元素的底部对齐。
+          (4)由于是左浮动，左边靠近页面边缘，所以左边是前，因此div2在最左边。
+        4.把div2、div3、div4都设置成右浮动。
+          道理和左浮动基本上一样，只不过需要注意一下前后对应关系。由于是右浮动，因此右边靠近页面边缘
+          所以右边是前，因此div2在最右边。
+        5.假设只把div2、div4左浮动。
+          div2、div4浮动，脱离了标准流，因此div3将会自动上移，与div1组成标准流。
+          div2发现上一个元素div1是标准流中的元素，因此div2相对垂直位置不变，与div1底部对齐。
+          div4发现上一个元素div3是标准流中的元素，因此div4的顶部和div3的底部对齐，并且总是成立的，
+          div3上移后，div4也跟着上移，div4总是保证自己的顶部和上一个元素div3(标准流中的元素)的底部对齐。
+        
+        总结：元素浮动之前，也就是在标准流中，是竖向排列的，而浮动之后可以理解为横向排列。
+-->
+    <style>
+        #div1{
+            background-color:red;
+            width:100px;
+            height:40px;
+            float:right;
+        }
+        #div2{
+            background-color:greenyellow;
+            width:200px;
+            height:90px;
+            float:right;
+            /*float:left;*/
+        }
+        #div3{
+            background-color:yellow;
+            width:160px;
+            height:160px;
+            float:right;
+            /*float:left;*/
+        }
+        #div4{
+            background-color:aqua;
+            width:140px;
+            height:150px;
+            float:right;
+            /*float:left;*/
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+    <div id="div4">div4</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTML5页面构成</title>
+    <meta charset="utf-8" />
+    <style>
+        header, main, footer {
+            border: solid 1px #666;
+            padding: 10px;
+            margin: 6px;
+            width: 900px;
+        }
+
+        header {
+            height: 100px;
+        }
+
+        main {
+            height: 300px;
+        }
+
+        ul li {
+            float: left;
+            width: 100px;
+        }
+
+        main article {
+            width: 400px;
+            float: left;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<!--    1)role ="banner"(横幅)
+        2)role="navigation"(导航)
+        3)role="main"(主体)
+        4)role="complementary"(补充性内容)
+        5)role="contentinfo"(内容信息) -->
+    <div style="margin:0px auto;width:960px">
+        <!--页面页头-->
+        <header role="banner">
+            <h1 style="text-align:center;font-size:18pt">慧与新闻网</h1>
+            <nav role="navigation">
+                <!--导航nav：指向其他页面-->
+                <ul>
+                    <li><a href="#">网站首页</a></li>
+                    <li><a href="#">新闻资讯</a></li>
+                    <li><a href="#">娱乐八卦</a></li>
+                    <li><a href="#">体育竞技</a></li>
+                    <li><a href="#">军事天地</a></li>
+                    <li><a href="#">都市小说</a></li>
+                    <li><a href="#">言情励志</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!--main:页面主要区域-->
+        <main role="main">
+            <article>
+                <!--表示文档、页面、应用或者一个独立的容器-->
+                <section>
+                    <h1>加入WTO</h1>
+                    <p>热烈祝贺中国加入WTO</p>
+                </section>
+                <section>
+                    <h1>减免农业税</h1>
+                    <p>农民终于等到这一天，不用再交<em>公粮</em>了!</p>
+                </section>
+            </article>
+            <article>
+                <!--表示文档、页面、应用或者一个独立的容器-->
+                <section>
+                    <h1>2018世界杯，中国来了!</h1>
+                    <p>热烈祝贺中国闯进了<strong>世界杯</strong></p>
+                </section>
+                <section>
+                    <h1>台湾回归大陆</h1>
+                    <p>打断骨头连着筋，台湾大陆一家亲。</p>
+                </section>
+            </article>
+        </main>
+        <!--页脚-->
+        <footer role="contentinfo">
+            <p style="text-align:center">
+                <small>&copy;慧与-济宁国际软件人才及产业基地</small>
+                <address>网站开发者:.NET Azure团队</address>
+            </p>
+            
+        </footer>
+    </div>
+</body>
+</html>

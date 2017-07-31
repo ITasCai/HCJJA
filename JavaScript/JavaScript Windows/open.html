@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Window.open方法</title>
+    <!--
+        在页面上弹出一个新的浏览器窗口，弹出窗口的语法如下：
+        window.open("弹出窗口的URL","窗口名称","窗口特征");
+        窗口的特征属性如下：
+        height、width：窗口文档显示区的高度、宽度。以像素计算。
+        left、top:窗口的x坐标、y坐标。单位为像素。
+        toolbar :是否显示浏览器的工具栏。黙认是yes。
+        scrollbars:是否显示滚动条。黙认是yes。
+        location:是否显示地址地段。黙认是yes。
+        status:是否添加状态栏。黙认是yes。
+        menubar:是否显示菜单栏。黙认是yes。
+        resizable:窗口是否可调节尺寸。黙认是yes。
+        titlebar:是否显示标题栏。黙认是yes。
+        fullscreen:否使用全屏模式显示浏览器。黙认是no。处于全屏模式的窗口必须同时处于剧院模式。
+        -->
+    <script>
+        function OpenWindow() {
+            window.open("http://www.baidu.com", "百度", "height=400,width=600,toolbar=yes,scrollbars=no,location=no,menubar=no," +
+                                                         "left=200px,top=100px");
+
+        }
+
+        function OpenAdd() {
+          window.open("child.html", "增加部门信息", "left=400,top=300,height=300,width=300,toolbar=yes,scrollbars=no,loaction=no,menubar=no");
+        }
+    </script>
+</head>
+<body>
+    <input type="button" name="name" value="打开窗口" onclick="OpenWindow();" />
+    <input type="button" name="name" value="增加"  onclick="OpenAdd();"/>
+    <input type="text" name="text1" id="txtReturn" class="return_value" />
+</body>
+</html>

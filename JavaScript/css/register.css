@@ -1,0 +1,54 @@
+﻿  .container {
+            width: 500px;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        .field {
+            height: 40px;
+            width: 500px;
+            text-align: left;
+            margin-left: 10px;
+        }
+
+        .contorl {
+            text-align: left;
+            margin-top: 10px;
+            margin-left: 100px;
+        }
+
+        .field label {
+            display: inline-block;
+            width: 70px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: inline-block;
+            width: 150px;
+        }
+
+        input[type=text] {
+            border: 1px solid gray;
+            height: 20px;
+        }
+
+        input:focus {
+            border: 1px solid #ff6a00;
+        }
+
+        #checkCode {
+            display:inline-block;
+            width:50px;
+            font-style:italic;
+             text-align:center;
+            background:url(../image/code.jpg) no-repeat;
+        }
+        a {
+            display: inline-block;
+            margin-left:0px;
+            width: 50px;
+            color: blue;
+            font-size: 15px;
+        }

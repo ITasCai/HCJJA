@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>背景平铺</title>
+    <meta charset="utf-8" />
+    <!--如果需要在页面上对背景图像进行平铺，可以使用 background-repeat 属性。
+        属性值: repeat:导致图像在水平垂直方向上都平铺，就像以往背景图像的通常做法一样。
+                repeat-x:水平方向重复
+                repeat-y: 垂直方向上重复
+                no-repeat 则不允许图像在任何方向上平铺。-->
+    <style>
+        .div_repeat {
+            width: 1050px;
+            height: 523px;
+            /*background-image:url(../image/body-bg-repeat-x.jpg);*/
+            background-image: url(../image/1.jpg);
+            background-repeat: no-repeat;
+            /*水平平铺*/
+            /*background-repeat:repeat-x;*/
+            /*background-repeat:repeat-y;/*垂直平铺*/ */;
+        }
+    </style>
+</head>
+<body>
+    <div class="div_repeat">
+
+    </div>
+
+</body>
+</html>

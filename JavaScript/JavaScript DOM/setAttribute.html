@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>setAttribute设置属性</title>
+    <!--
+        setAttribute方法允许我们用属性节点的值做修改。
+        与getAttribute一样，setAttribute也只能用于元素节点。
+        setAttribute()方法需要我们向它传递两个参数：obiect.setAttribute(attribute,value)
+        attributes;返回元素属性的 NamedNodeMap(返回所有属性的集合，如果通过该方法获取属性，obj.attributes['attr'])
+        -->
+    <script>
+        window.onload = function () {
+            var hobby = document.getElementById("divHobby").attributes["title"].value;//使用attributes属性
+            var hobby1 = document.getElementById("divHobby").getAttribute("title");//使用getAttribute属性
+            document.getElementById("divHobby").setAttribute("title", "like");//通过setAttribute方法设置属性的值
+            var hobby2 = document.getElementById("divHobby").getAttribute("title");//使用getAttribute属性
+            alert(hobby + "\n" + hobby1 + "\n" + hobby2);
+        }
+    </script>
+</head>
+<body>
+    <div id="divHobby" title="hobby">
+        <ul>
+            <li>游泳</li>
+            <li>上网</li>
+            <li>拳击</li>
+            <li>音乐</li>
+        </ul>
+    </div>
+</body>
+</html>

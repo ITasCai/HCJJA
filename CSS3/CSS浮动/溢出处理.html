@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>溢出处理</title>
+    <!--溢出处理overflow
+        1.什么情况使用？
+          当一个元素固定为某个特定大小，但内容在元素中放不下。
+          此时就可以利用overflow属性来控制这种情况
+        2.overflow属性
+          visible 说明:默认值。内容不会被修剪，会呈现在盒子之外
+          hidden  说明:内容会被修剪，并且其余内容是不可见的
+          scroll  说明:内容会被修剪，但是浏览器会显示滚动条以便查看其余内容
+          auto    说明:如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容
+    -->
+    <style>
+        .container {
+            margin: 0px auto;
+            padding: 0px;
+            width: 600px;
+            border: 1px solid black;
+        }
+
+        .header {
+            width: 100%;
+            height: 120px;
+            background-color: #808080;
+            text-align: center;
+        }
+
+        .left {
+            width: 200px;
+            border: 1px solid blue;
+            padding: 5px;
+            float: left;
+        }
+
+        .right {
+            width: 360px;
+            border: 1px solid blue;
+            padding: 5px;
+            float: left;
+            overflow:hidden;
+            /*text-overflow:ellipsis;
+            white-space:nowrap;*/
+            /*overflow:hidden;*//*内容被裁剪*/
+            /*overflow:visible;*/
+            /*overflow:auto;*/
+            /*overflow:scroll;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            网站头部
+        </div>
+        <div class="left">
+            <p>C#语言程序设计</p>
+            <p>C#语言程序设计</p>
+            <p>C#语言程序设计</p>
+            <p>C#语言程序设计</p>
+            <p>C#语言程序设计</p>
+            <p>C#语言程序设计</p>
+        </div>
+        <div class="right">
+           
+            <p>HTML+CSS+JavaScript+Jquery,HTML+CSS+JavaScript+Jquery</p>
+            <p>HTML+CSS+JavaScript+Jquery</p>
+            <p>HTML+CSS+JavaScript+Jquery</p>
+            <p>HTML+CSS+JavaScript+Jquery</p>
+            <p>HTML+CSS+JavaScript+Jquery</p>
+            <p>HTML+CSS+JavaScript+Jquery</p>
+            <p>HTML+CSS+JavaScript+Jquery</p>
+            <p>HTML+CSS+JavaScript+Jquery</p>
+        </div>
+    </div>
+</body>
+</html>

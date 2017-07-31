@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTML-image</title>
+    <meta charset="utf-8" />
+    <!--
+        语法:<img src="url" alt="some_text">
+        height（高度） 与 width（宽度）属性用于设置图像的高度与宽度。
+        alt 属性用来为图像定义一串预备的可替换的文本。
+        用align属性，可以改变图片的垂直(居上、居中、居下)对齐方式。HTML5已弃用
+        src 指 “source”，图片路径
+        -->
+</head>
+<body>
+    <!--alt 替换文本-->
+    <p><img src="image/car.jpg" alt="老爷车" width="200" height="120" align="bottom" />对齐方式：bottom</p>
+    <!--使用css float属性排列图片-->
+    <p><img src="image/smiley.gif" alt="笑脸" width="30" height="30" style="float:right" />图片浮动在这个文本的右边</p>
+    <p><img src="image/smiley.gif" alt="笑脸" width="30" height="30" style="float:left" />图片浮动在这个文本的左边</p>
+    <!--将图片作为一个超链接-->
+    <a href="http://www.baidu.com">
+        <img src="image/smiley.gif" alt="百度" width="32" height="32" />
+    </a>
+</body>
+</html>

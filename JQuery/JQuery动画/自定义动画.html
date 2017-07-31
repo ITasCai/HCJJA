@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>自定义动画</title>
+    <!--
+    jQuery animate() 方法用于创建自定义动画。
+    语法：
+    $(selector).animate({params},speed,callback);
+    必需的 params 参数定义形成动画的 CSS 属性。
+    可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+    可选的 callback 参数是动画完成后所执行的函数名称。
+    提示：默认地，所有 HTML 元素都有一个静态位置，且无法移动。
+    如需对位置进行操作，要记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute！
+    animate()方法在设置动画时，又可以分为以下几种：
+    1.简单动画
+    animate()方法设置动画效果时，主要依赖对CSS的设置，例如要让一个div向右移动100px，则将其left属性设置为100px。
+    2.累加动画
+    在之前的代码中，设置了｛left:”200px”｝作为动画参数。如果在200px 之前加上“＋＝＇＇
+    或者“一＝”符号即表示在当前位置累加或者累减。
+    3.叠加动画
+    如果需要同时执行多个动画，例如在元素向右滑动的同时，再向下移动。
+    $("#txt").animate({"left":"200px", "top":"200px"},1000);
+    4.多重动画
+    上例中，两个动画效果是同时发生的，如果想要按顺序执行动画，只需把代码拆开，然后按照顺序写就可以了，
+    jQuery 代码如下：
+    $("#txt").animate({"left":"200px"},1000);
+    $("#txt").animate({"top":"200px"},1000);
+
+        -->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            //简单动画
+            $("#btn1").click(function () {
+                $(".panel").animate({ "left": "200px" }, 1000);
+            });
+            //累加动画
+            $("#btn2").click(function () {
+                $(".panel").animate({ "top": "+=100px" }, 1000);
+            });
+
+            //叠加动画
+            $("#btn3").click(function () {
+                $(".panel").animate({ "left": "300px", "top": "300px" }, 1000);
+            });
+
+            //多重动画
+            $("#btn4").click(function () {
+                $(".panel").animate({ "left": "200px" }, 1000);
+                $(".panel").animate({ "top": "300px" }, 1000);
+            });
+        });
+    </script>
+    <style>
+        .panel {
+            position: relative; /*位置样式必须为relative或者absolute.*/
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+            background: #96E555;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">显示文字</div>
+    <button id="btn1">简单动画</button>
+    <button id="btn2">累加动画</button>
+    <button id="btn3">叠加动画</button>
+    <button id="btn4">多重动画</button>
+</body>
+</html>

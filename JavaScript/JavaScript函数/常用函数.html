@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <!--
+        常用函数
+        1.alert函数：显示一个警告对话框，包括一个OK按钮。
+        2.confirm函数：显示一个确认对话框，包括OK、Cancel按钮。
+        3.eval函数：计算表达式的结果。
+        4.isNaN函数：测试是(true)否(false)不是一个数字。
+        5.parseFloat函数：将字符串转换成浮点数字形式。
+        6.parseInt函数：将符串转换成整数数字形式。
+        7.prompt函数：显示一个输入对话框，提示等待用户输入。
+    -->
+    <script>
+        //alert("Hello World!");//Alert
+        //if (confirm("确定要删除吗？"))//Confirm
+        //{
+        //    alert("删除成功!");
+        //}
+        //var str = "alert('你好')";
+        //eval(str);
+
+        //var num1 = "abc";
+        //var num2 = 123;
+        //if (isNaN(num1)) {
+        //    alert("这是一个数字");
+        //} else {
+        //    alert("它不是数字");
+        //}
+
+        /*
+        parseInt()函数首先查看位置0处的字符，判断它是否是个有效数字，如果不是则返回NaN,不在继续执行其他操作。
+        但如果该字符是有效数字，该函数将查看位置1处的字符，进行同样的测试，
+        这一过程将持续到发现非有效数字的字符为止，此时parseInt将该字符串之前的字符转换成数字，*/
+        var num1 = parseInt("78.89");//返回值为78
+        var num2 = parseInt("4567cc");//返回值为4567
+        var num3 = parseInt("this36");//返回值为NaN
+
+        /*parseFloat()函数和parseInt()函数处理方式相同。从位置0开始查看每个字符串，
+        直到找到第一个非有效的字符为止，然后把该字符之间的字符串转换为浮点数。
+        对于这个函数来说，第一个出现的小数和点是有效字符，如果两个小数点，那么第二个小数点被看作是无效的*/
+        var num1 = parseFloat("4567cc");//返回值为4567
+        var num2 = parseFloat("45.58");//返回值为45.58
+        var num3 = parseFloat("45.58.25");//返回值为45.58
+        var num4 = parseFloat("this36");//返回值为NaN
+
+        var p1 = prompt("请输入第一个数", 0);
+        var p2 = prompt("请输入第二个数", 0);
+        var result = parseInt(p1) + parseInt(p2);
+        document.write(p1 + "+" + p2 + "=" + result);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>json</title>
+    <!--
+        json语法格式
+        json 文本格式在语法上与创建 JavaScript 对象的代码相同。
+        由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 eval() 函数，用 JSON 数据来生成原生的 JavaScript 对象。
+
+        json语法规则
+        数据在名称/值对中。
+    	数据由逗号分隔。
+    	花括号保存对象。
+    	方括号保存数组。
+        json 数据的书写格式是：名称/值对。
+        名称/值对包括字段名称（在双引号中），后面写一个冒号，然后是值：
+        "name":"张飞",
+        "age":23
+
+        Json的数据类型
+        数字（整数或浮点数）
+        字符串（在双引号中）
+        逻辑值（true 或 false）
+        数组（在方括号中）
+        对象（在花括号中）
+        NULL
+
+        json对象
+        json对象在花括号中书写:{"":"","":"","":""}
+        对象可以包含多个名称/值对：
+        var student={"username":"张三","age":"18","sex":"male"};
+        字段可以不用也可用引号引起来，但字符串值必须用引号（单引号和双引号都行）
+
+        json数组
+        json 数组在方括号中书写：[{},{},…]
+        数组可包含多个对象：
+        var emp={
+            employee:[{name:"张三",age:18,hobby:["上网","游戏"]},
+                      {name:"李四",age:20,hobby:["音乐","足球"]},
+                      {name:"王五",age:19,hobby:"篮球"}
+                ]
+
+        };
+
+        读取json字符串
+
+         -->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        //读取json字符串
+        var object = {
+            name: "张三",
+            age: 20,
+            sex: true,
+            phone: "18766780123",
+            hobby: ["唱歌", "跳舞", "上网"]
+        };
+
+        var name = object.name;
+        var age = object.age;
+        var sex = object.sex;
+        var phone = object.phone;
+        var hobby = object.hobby;
+        var str = "";
+        hobby.forEach(function (value, index) {
+            str += hobby[index];
+        });
+        //alert("姓名:" + name + "\n" +
+        //       "年龄:" + age + "\n" +
+        //       "性别:" + sex + "\n" +
+        //       "手机号:" + phone + "\n" +
+        //       "爱好:" + hobby);
+
+        //通过eval()处理字符串
+        var option = "{name:'张三',age:18,sex:'男'}";
+        var obj = eval("(" + option + ")");
+        var name = obj.name;
+        var age = obj.age;
+        var sex = obj.sex;
+        //alert("姓名:" + name + "\n" +
+        //    "年龄:" + age + "\n" +
+        //    "性别:" + sex + "\n");
+
+        var emp = "{employee:[" +
+                   "{empId:1001,empName:'张三'}," +
+                   "{empId:1002,empName:'李四'}," +
+                   "{empId:1003,empName:'王五'}]}";
+        var empObj = eval("(" + emp + ")");
+
+        //for (var i = 0; i < empObj.employee.length; i++) {
+        //    var result = empObj.employee[i].empId + ":" + empObj.employee[i].empName;
+        //    alert(result);
+        //}
+
+        //parseJSON函数把字符串类型转化为JSON对象格式
+        var json = $.parseJSON(emp);
+        var name1 = json.employees[0].firstName;
+        alert(name1);
+        //for (var i = 0; i < json.employee.length; i++) {
+        //    var result = json.employee[i].empId + ":" + json.employee[i].empName;
+        //    alert(result);
+        //}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

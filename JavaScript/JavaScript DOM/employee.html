@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>添加员工信息</title>
+    <style>
+        .employee {
+            margin: 30px auto;
+            width: 350px;
+            /*border: 1px solid blue;*/
+        }
+
+        .field {
+            height: 30px;
+            margin-top: 10px;
+            margin-left: 30px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        //添加员工信息
+        function EmpAdd() {
+            var empId = document.getElementById("txtId").value;
+            var empName = document.getElementById("txtName").value;
+            var empJob = document.getElementById("txtJob").value;
+            var emp = new Object();//创建一个员工对象
+            emp.empId = empId;
+            emp.empName = empName;
+            emp.empJob = empJob;
+
+            if (Validate()) {
+                alert("添加成功!");
+                window.opener.ShowMsg(emp);//调用父窗口的中的方法
+                window.close();
+            }
+            //window.opener.location.reload();//刷新父窗口
+        }
+        function EmpExit() {
+            window.close();
+        }
+
+        function Validate() {
+            var empId = document.getElementById("txtId");
+            var empName = document.getElementById("txtName");
+            var empJob = document.getElementById("txtJob");
+            //验证n位的数字：^\d{n}$
+            var reg = /^\d{4}$/;
+            if (empId.value.trim().length == 0) {
+                alert("员工编号不能为空!");
+                return false;
+            }
+            else if (!reg.test(empId.value)) {
+                alert("员工编号必须为4位整数。");
+                return false;
+            }
+            else if (empName.value.trim().length == 0) {
+                alert("员工姓名不能为空!");
+                return false;
+            }
+            else if (empJob.value == 0) {
+                alert("请选择职位!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" name="form1">
+        <div class="employee">
+            <fieldset>
+                <legend>添加员工</legend>
+                <div class="field">
+                    <label for="txtId">员工编号:</label>
+                    <input type="text" name="name" id="txtId" size="20"  maxlength="4" autofocus placeholder="请输入员工编号" />
+                </div>
+                <div class="field">
+                    <label for="txtName">员工姓名:</label>
+                    <input type="text" name="name" id="txtName" size="20" maxlength="20"  placeholder="请输入姓名" />
+                </div>
+                <div class="field">
+                    <label for="txtJob">员工职位:</label>
+                    <select id="txtJob" style="width:150px">
+                        <option value="0" selected="selected">请选择</option>
+                        <option value="经理">项目经理</option>
+                        <option value="程序员">程序员</option>
+                        <option value="文员">文员</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <input type="submit" name="name" id="btnAdd" value="添加" onclick="EmpAdd();" />
+                    <input type="button" name="name" id="btnClose" value="退出" onclick="EmpExit();" />
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>

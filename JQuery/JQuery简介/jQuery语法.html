@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>JQuery语法</title>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).hide();//隐藏当前元素
+            });
+            $("#btnHidden").click(function () {
+                $(this).hide();
+            });
+        });
+     
+    </script>
+    <style>
+        .test {
+            color:red;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p>Hello World!</p>
+        <p class="test">慧与-济宁产业基地</p>
+         <p id="test">欢迎你们</p>
+    </div>
+    <input type="button" name="name" id="btnHidden" value="隐藏当前元素" />
+</body>
+</html>

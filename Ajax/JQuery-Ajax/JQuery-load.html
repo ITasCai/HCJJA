@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JQuery-Ajax简介</title>
+    <!--
+        jQuery 提供多个与 AJAX 有关的方法。
+        通过 jQuery AJAX 方法，您能够使用 HTTP Get 和 HTTP Post 从远程服务器上请求文本、HTML、XML 或 JSON -
+        同时您能够把这些外部数据直接载入网页的被选元素中。
+        如果没有 jQuery，AJAX 编程还是有些难度的。
+        编写常规的 AJAX 代码并不容易，因为不同的浏览器对 AJAX 的实现并不相同。
+        这意味着您必须编写额外的代码对浏览器进行测试。
+        不过，jQuery 团队为我们解决了这个难题，我们只需要一行简单的代码，就可以实现 AJAX 功能。
+
+        load() 方法从服务器加载数据，并把返回的数据放入被选元素中。
+        语法：$(selector).load(URL,data,callback);
+        必需的 URL 参数规定您希望加载的 URL。
+        可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。
+        可选的 callback 参数是 load() 方法完成后所执行的函数名称。
+        可选的 callback 参数规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：
+        responseTxt - 包含调用成功时的结果内容
+        statusTXT - 包含调用的状态
+        xhr - 包含 XMLHttpRequest 对象
+        -->
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                //也可以把 jQuery 选择器添加到 URL 参数。
+                //下面的例子把 "txt.html" 文件中 id="p1" 的元素的内容，加载到指定的 <div> 元素中：
+                $("#div1").load("txt.html #p1", function (response, statustxt, xhr) {
+                    if (statustxt == "success") {
+                        alert("读取成功!");
+
+                    }
+                    alert(xhr.readyState + ":" + xhr.status + ":" + xhr.statusText);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">使用JQuery Ajax修改文本内容</div>
+    <button>获得外部内容</button>
+</body>
+</html>

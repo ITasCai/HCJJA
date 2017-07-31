@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>背景定位</title>
+	<meta charset="utf-8" />
+    <!--可以利用 background-position 属性改变图像在背景中的位置
+          有两种取值：水平方向 垂直方向
+            1.Xpos Ypos：使用具体像素表示指定背景图片出现的位置，第一个表示水平方向
+                        第二个表示垂直方向  
+                        例如：0px 0px 默认，表示在左上角出现，无偏移
+                        例如：30px 40px 表示向右偏移30px 向下偏移40px(正偏移)
+                        例如：-30px -40px 表示向左偏移30px 向上偏移40px（负偏移）
+            2.X% Y% :使用百分比表示背景出现位置，第一个表示水平方向
+              第二个表示垂直方向  例如：10% 50% 表示背景图像右偏移10% 垂直方向居中
+            3.top、center、bottom、left和right。
+              例如：right top ：右上角出现
+              top：上方水平方式出现（如果仅	指定一个关键字，其他值将会是"center"）
+        -->
+    <style>
+        .div1 {
+            width:300px;
+            height:auto;
+            background-image:url(../image/hetao.jpg);
+            background-repeat:no-repeat;
+            background-position:right top;
+            /*background-position:bottom;*/
+
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <p>这是一段文本</p>
+        <p>这是一段文本</p>
+        <p>这是一段文本</p>
+        <p>这是一段文本</p>
+        <p>这是一段文本</p>
+        <p>这是一段文本</p>
+      
+    </div>
+</body>
+</html>

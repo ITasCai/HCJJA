@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <form action="index.html" method="post" enctype="application/x-www-form-urlencoded">
+        <div id="login">
+            <fieldset>
+                <legend>用户登录</legend>
+                <p>
+                    <label for="userName">账号:</label>
+                    <input type="text" name="userName" id="userName" placeholder="请输入用户名"
+                           required="required" oninvalid="setCustomValidity('用户名不能为空')"
+                           oninput="setCustomValidity('')" autofocus size="20" maxlength="15" />
+                </p>
+                <p>
+                    <label for="userPwd">密码:</label>
+                    <input type="password" name="userPwd" id="userPwd" required placeholder="请输入密码"
+                           size="20" maxlength="15" />
+                </p>
+                <p>
+                    <input type="submit" name="login" value="登录" />
+                    <input type="reset" name="reset" value="重置" />
+                </p>
+            </fieldset>
+        </div>
+        </form>
+</body>
+</html>

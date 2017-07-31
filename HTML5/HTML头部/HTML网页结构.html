@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<!--声明页面为HTML5文档-->
+<html>
+<!--HTML页面的根元素-->
+<head>
+    <!--网页文档的头部：包含了文档的元数据-->
+    <!--meta是HTML中的元标签，对应了HTML的相关信息，客户端浏览器会根据这些信息进行处理
+        作用:搜索引擎优化（SEO)
+        定义页面使用语言，
+        自动刷新并指向新的页面，
+        为网站添加关键词、描述内容、作者。
+        meta标签共有两个属性：http-equiv属性和name属性。不同的属性又有不同的参数值，这些不同的参数值就实现了不同的网页功能。
+        -->
+    <!--http-equiv：HTTP文件头作用，它可以向浏览器传回一些有用的信息，帮助正确和精确的显示网页内容
+        "Content-Type"：设定页面使用的字符集，告诉浏览器要准备接受一个HTML文档
+        content：内容类型：网页的格式是文本的/网页模式
+        charset：网页的编码是utf-8
+        -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!--显示字符集的设定-->
+    <meta http-equiv="content-language" content="zh-CN" /><!--显示语言设定-->
+    <meta http-equiv="refresh" content="100;Url=http://www.baidu.com" /><!--页面自动刷新，并指向新的页面-->
+    <meta http-equiv="expires" content="0" />
+    <!--<meta http-equiv="set-cookie" content="cookievalue=2;expires=Wednesday,21-Oct-2017"-->
+    <meta name="keywords" content="HTML,CSS,JavaScript" />
+    <meta name="description" content="关于.NET程序员讨论技术的社区网站" />
+    <meta name="author" content="EPM-Software" />
+    <title>HTML网页结构</title><!--网页的标题-->
+    <meta charset="utf-8" />
+     <!--base标签描述了基本的链接地址/链接目标，该标签作为HTML文档中所有的链接标签的默认链接-->
+    <base href="http://www.baidu.com"  target="_blank"/>
+</head>
+<body>
+    <!--网页的主体内容-->
+    <h1>我的第一个标题</h1>
+    <p>第一个段落</p>
+</body>
+</html>

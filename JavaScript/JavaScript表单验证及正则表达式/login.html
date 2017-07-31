@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        .container {
+            margin: 20px auto;
+            padding-top: 30px;
+            width: 500px;
+            height: 200px;
+        }
+
+        .field {
+            margin-left: 0px;
+            height: 30px;
+            text-align: center;
+        }
+
+        label {
+            display: inline-block;
+            width: 70px;
+        }
+
+        span {
+            display: inline-block;
+            width: 40px;
+        }
+    </style>
+    <script>
+        function createCode() {
+            var code = "";
+            var codelength = 4;//验证码的长度
+            var checkCode = document.getElementById("checkCode");
+            var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+            for (var i = 0; i < codelength; i++) {
+                var num = Math.floor(Math.random() * 36);
+                code += codeChars[num];
+            }
+            checkCode.innerText = code;
+        }
+
+        window.onload = createCode;
+
+        //验证
+        function Validate() {
+            var userName=document.getElementById("userName");
+            var password=document.getElementById("userPwd");
+            var inputcode = document.getElementById("showcode");
+            var compare = document.getElementById("checkCode");
+            if (inputcode.value.trim().length == 0) {
+                alert("请输入验证码");
+                return false;
+            }
+            else if (inputcode.value != compare.innerText) {
+                alert("验证码不正确");
+                return false;
+            }
+            else if (userName.value != "admin" || password.value != "123456") {
+                alert("用户名或密码不正确");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="index.aspx?type=login" method="post" onsubmit="return Validate();">
+            <fieldset>
+                <legend>用户登录</legend>
+                <div class="field">
+                    <label>账号:</label>
+                    <input type="text" name="username" id="userName" required autofocus placeholder="请输入用户名和密码"
+                           maxlength="20" oninvalid="setCustomValidity('用户名不能为空')" oninput="setCustomValidity('')" />
+                </div>
+                <div class="field">
+                    <label>密码:</label>
+                    <input type="password" name="userpwd" id="userPwd" value="" required placeholder="请输入密码"
+                           maxlength="20" oninvalid="setCustomValidity('密码不能为空')" oninput="setCustomValidity('')" />
+                </div>
+                <div class="field">
+                    <label>验证码:</label>
+                    <input size="5" id="showcode" type="text" />
+                    <span id="checkCode"></span>
+                    <input type="button" value="换一张" onclick="createCode();" />
+                    <!--<a style="color:red;" onclick="createCode();">换一张</a>-->
+                </div>
+                <div class="field">
+                    <input type="submit" name="name" value="登录" />
+                    <input type="button" name="name" id="btnOK" value="注册" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
